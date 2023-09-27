@@ -16,13 +16,13 @@ while (numeroUsuario != numeroAzar && numeroUsuario != null) {
     if (numeroUsuario > numeroAzar) {
         alert("(" + intentos + ") es mayor que el número pedido")
         numeroUsuario = prompt("Número entre " + min + " y " + max + " (o cancela para finalizar):");
-        intentos ++;
     
     } else if (numeroUsuario < numeroAzar) {
         alert("(" + intentos + ") es menor que el número pedido")
         numeroUsuario = prompt("Número entre " + min + " y " + max + " (o cancela para finalizar):");
-        intentos ++;
     }
+
+    intentos ++;
 }
 
 if (numeroUsuario == null) {
