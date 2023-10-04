@@ -4,12 +4,15 @@ entre 23 y cogiendo de la cadena ‘TRWAGMYFPDXBNJZSQVHLCKE’ la letra correspo
 divisón. Por ejemplo, si el resto es 0 la letra será la T y si es 4 será la G. Prueba la función en la consola con 
 tu DNI */
 
-function validarDNI(dni) {
+let dni = document.getElementById("dni").value;
+
+function validarDNI() {
+    
     
     const arrayLetras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
+    let letra = dni.toString().substr(-1).toUpperCase();
     let n = parseInt(dni);
-    let letra = dni.substring(-1).toUpperCase();
 
     let resto = n % 23;
     
@@ -31,3 +34,30 @@ if (!validarDNI(dni)) {
 }
 
 
+
+// function validarDNI(dni) {
+//     const arrayLetras = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+//     let n = parseInt(dni);
+//     let letruja = dni.substr(-1).toUpperCase();
+
+//     let resto = n % 23;
+//     let letraResto = arrayLetras[resto];
+    
+//     if (letruja === letraResto) {
+//         return true;
+    
+//     } else {
+//         return false;
+//     }
+// }
+
+// if (!validarDNI("71035494V")) {
+//     alert("Incorrecto");
+
+// } else {
+//     alert("Correcto");
+// }
+
+// let dni = "12345678Z";
+// console.log(`El DNI ${dni} es ${validarDNI(dni)}`);
