@@ -29,7 +29,3 @@ function validarDNI(dni) {
     }
 }
 
-
-
-// let dni = "12345678Z";
-// console.log(`El DNI ${dni} es ${validarDNI(dni)}`);
