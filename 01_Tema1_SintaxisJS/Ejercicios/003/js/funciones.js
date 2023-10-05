@@ -4,14 +4,15 @@ entre 23 y cogiendo de la cadena ‘TRWAGMYFPDXBNJZSQVHLCKE’ la letra correspo
 divisón. Por ejemplo, si el resto es 0 la letra será la T y si es 4 será la G. Prueba la función en la consola con 
 tu DNI */
 
-let dni = document.getElementById("dni").value;
+let dni;
+let resultado = document.getElementById('resultado');
 
-function validarDNI() {
-    
+function validarDNI(dni) {
+    dni = document.getElementById("dni").value;
     
     const arrayLetras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-    let letra = dni.toString().substr(-1).toUpperCase();
+    let letra = dni.substr(-1).toUpperCase();
     let n = parseInt(dni);
 
     let resto = n % 23;
@@ -19,45 +20,16 @@ function validarDNI() {
     let letraResultado = arrayLetras[resto];
 
     if (letra === letraResultado) {
+        resultado.value = "DNI Correcto";
         return true;
     
     } else {
+        resultado.value = "DNI Incorrecto";
         return false;
     }
 }
 
-if (!validarDNI(dni)) {
-    document.getElementById('resultado').value = "DNI Incorrecto"
 
-} else {
-    document.getElementById('resultado').value = "DNI Correcto"
-}
-
-
-
-// function validarDNI(dni) {
-//     const arrayLetras = "TRWAGMYFPDXBNJZSQVHLCKE";
-
-//     let n = parseInt(dni);
-//     let letruja = dni.substr(-1).toUpperCase();
-
-//     let resto = n % 23;
-//     let letraResto = arrayLetras[resto];
-    
-//     if (letruja === letraResto) {
-//         return true;
-    
-//     } else {
-//         return false;
-//     }
-// }
-
-// if (!validarDNI("71035494V")) {
-//     alert("Incorrecto");
-
-// } else {
-//     alert("Correcto");
-// }
 
 // let dni = "12345678Z";
 // console.log(`El DNI ${dni} es ${validarDNI(dni)}`);
