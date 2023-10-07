@@ -1,12 +1,16 @@
 body {
-    text-align: center;
     background-color: rgb(136, 190, 172);
 }
 
 h1 {
+    text-align: center;
     color: rgb(8, 107, 255);
     text-shadow: 1px 1px black;
     margin-bottom: 50px;
+}
+
+#inputsRombo {
+    text-align: center;
 }
 
 button {
@@ -17,6 +21,9 @@ button {
 }
 
 #divRombo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 20px;
     font-size: 20px;
