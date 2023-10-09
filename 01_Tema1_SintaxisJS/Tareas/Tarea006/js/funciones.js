@@ -80,3 +80,39 @@ function limpiar() {
     document.getElementById("rombo").value = "";
     divRombo.innerHTML = "";
 }
+
+
+// function dibujarRombo() {
+//     const filas = document.getElementById("input_filas").value;
+//     const cuadro = document.getElementById("c2");
+//     cuadro.innerHTML = "";
+  
+//     let espacios = (filas / 2 - 1).toFixed(0);
+//     let astericos = 1;
+  
+//     for (let i = 0; i < filas; i++) {
+//       for (let ie = 0; ie < espacios; ie++) {
+//         cuadro.innerHTML += "&nbsp";
+//       }
+  
+//       for (let ia = 0; ia < astericos; ia++) {
+//         if (ia == 0 || ia == astericos - 1) {
+//           cuadro.innerHTML += "*";
+//         } else {
+//           cuadro.innerHTML += "&nbsp";
+//         }
+//       }
+//       if (i + 1 < filas / 2) {
+//         espacios--;
+//         astericos += 2;
+//       } else {
+//         if (i + 1 != filas / 2) {
+//           espacios++;
+//           astericos -= 2;
+//         }
+//       }
+  
+//       cuadro.innerHTML += "<br>";
+//     }
+//   }
+  
