@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Tarea 007</title>
+
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="shortcut icon" href="#" type="image/x-icon">
+    </head>
+
+    <body>
+        <h1>Tarea 007 - Dibujando Figuras<br> Manuel Chillón</h1>
+
+        <div id="divInputs">
+            <h2>Dibujando Figuras</h2>
+    
+            <input type="number" name="filas" class="inputs" id="filas" placeholder="Introduce el número de filas">
+            <input type="text" name="caracterL" class="inputs" id="caracterL" placeholder="Introduce el carácter de las líneas">
+            <input type="text" name="caracterR" class="inputs" id="caracterR" placeholder="Introduce el carácter de relleno">
+            <input type="text" name="color" class="inputs" id="color" placeholder="Introduce el color de relleno">
+            
+            <button onclick="mostrarFiguras()">Mostrar</button>
+            <button onclick="limpiar()">Limpiar</button>
+        </div>
+
+        <br><br>
+
+        <div class="divFiguras" id="divRomboHueco">
+            
+        </div>
+
+        <div class="divFiguras" id="divCuadradoHueco">
+
+        </div>
+
+        <div class="divFiguras" id="divRomboRelleno">
+
+        </div>
+
+        <div class="divFiguras" id="divCuadradoRelleno">
+
+        </div>
+
+        <div class="divFiguras" id="divCuadradoASCII">
+
+        </div>
+
+        <script src="js/funciones.js"></script>
+    </body>
+
+</html>
