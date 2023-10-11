@@ -83,6 +83,7 @@
             //     suma += notas[i];
             // }
 
+            // Valor de la nota del array notas
             for (const nota of notas) {
                 suma += nota;
 
@@ -95,6 +96,7 @@
         }
     }
     
+    // Es conveniente hacer varios try catch, porque si está todo en el mismo y la primera ejecución no se cumple, el resto no se ejecutan.
     try {
         console.log(calcularMedia([]));
 
