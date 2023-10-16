@@ -10,7 +10,7 @@ for (let propiedad in alumno1) {
     nombreCompleto += alumno1[propiedad] + " ";
 }
 
-console.log(nombreCompleto);
+console.log(nombreCompleto + "");
 console.log("");
 
 /* FORMA ANTIGUA DE DECLARAR UN OBJETO Y SUS ATRIBUTOS
@@ -53,3 +53,17 @@ console.log("");
     for (let prop in alumno) {
         console.log(prop + ": " + alumno[prop]);
     }
+
+    console.log("");
+
+// Función atributos de un objeto con this
+    alumno.getInfo = function() {
+        // return "El alumno " + alumno.nombre + " " + alumno.apellidos + " tiene " + alumno.edad + " años";
+        return "El alumno " + this.nombre + " " + this.apellidos + " tiene " + this.edad + " años";
+    }
+
+// Función anterior pero con arrow (flecha)
+    alumno.getInfo = () => "El alumno " + alumno.nombre + " " + alumno.apellidos + " tiene " + alumno.edad + " años";
+    
+
+    console.log(alumno.getInfo());
