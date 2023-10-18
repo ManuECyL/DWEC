@@ -7,9 +7,7 @@ function ordenarNotas(notas) {
     
     notas.sort(function(n1, n2) {
         
-        let resta = n1 - n2;
-        
-        return resta;
+        return n1 - n2;
     });
 };
 
