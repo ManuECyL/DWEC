@@ -49,6 +49,7 @@
     let ar = [2,4,6];
     console.log(ar.toString());
 
+    // JOIN
     let br = ar.join('-');
     console.log(br);
 
@@ -58,8 +59,13 @@
     let cr = frutas.join('');
     console.log(cr);
 
+
+    // SPLIT
     let d = "Miguel Barba Domínguez";
     let arrayD  = d.split(' ');
     console.log(arrayD);
 
-    
+
+    // SORT
+    let e = ['hola','adios','Bien','Mal'];
+
