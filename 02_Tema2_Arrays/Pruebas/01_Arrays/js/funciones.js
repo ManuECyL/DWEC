@@ -151,3 +151,60 @@
     });
 
     console.log(personasAlfabetico);
+    console.log("");
+
+
+    // CONCAT
+    let n = [2,4,6];
+    let l = ['a', 'b', 'c'];
+    let cc = n.concat(l.concat(n));
+    console.log(cc);
+
+
+    // REVERSE
+    console.log(cc.reverse());
+
+
+    // INDEX OF 
+    console.log(n.indexOf(4));
+
+    // LAST INDEX OF
+    console.log(n.lastIndexOf('4'));
+    console.log("");
+
+
+    // Sin FILTER
+    let arrayNotas0 = [5.2, 3.9, 6, 9.75, 7.5, 3];
+    let aprobados0 = [];
+
+    for (let i = 0; i < arrayNotas0.length; i++) {
+        
+        let nota0 = arrayNotas0[i];
+
+        if (nota0 >= 5) {
+            aprobados0.push(nota0);
+        }   
+    }
+
+    console.log(aprobados0);
+
+    // Con FILTER
+    let arrayNotas = [5.2, 3.9, 6, 9.75, 7.5, 3];
+    
+    // Tradicional
+    let aprobados = arrayNotas.filter(function(nota) {
+        
+        if (nota >= 5) {
+            return true;
+        
+        } else {
+            return false;
+        }
+    });
+
+    console.log(aprobados);
+
+    // Con Flecha
+    let aprobados2 = arrayNotas.filter((nota) => nota >= 5)
+        
+    console.log(aprobados2);
