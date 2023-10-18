@@ -1,4 +1,4 @@
-let alumno1 = {
+let alum = {
     nombre: "Georgi",
     apellido1: "Borisov",
     apellido2: "Alexandrov"
@@ -6,8 +6,8 @@ let alumno1 = {
 
 let nombreCompleto = "";
 
-for (let propiedad in alumno1) {
-    nombreCompleto += alumno1[propiedad] + " ";
+for (let propiedad in alum) {
+    nombreCompleto += alum[propiedad] + " ";
 }
 
 console.log(nombreCompleto + "");
@@ -65,5 +65,21 @@ console.log("");
 // Función anterior pero con arrow (flecha)
     alumno.getInfo = () => "El alumno " + alumno.nombre + " " + alumno.apellidos + " tiene " + alumno.edad + " años";
     
-
     console.log(alumno.getInfo());
+    console.log("");
+
+    let alumno1 = {
+        id: 1,
+        nombre: "Miguel"
+    };
+
+    let alumno2 = {
+        id: 2,
+        nombre: "Fernando"
+    };
+
+    let alumnos = [alumno1, alumno2];
+
+    console.log(alumnos);
+
+    console.log(alumnos.length);
