@@ -208,9 +208,53 @@
     let aprobados2 = arrayNotas.filter((nota) => nota >= 5)
         
     console.log(aprobados2);
+    console.log("");
 
 
     // MAP
     let arrayNotasMap = [5.2, 3.9, 6, 9.75, 7.5, 3];
 
     let arrayNotasSubidas = arrayNotasMap.map(nota => nota + nota * 0.1);
+
+    console.log(arrayNotasSubidas);
+    console.log("");
+
+
+    // REDUCE -> Suma de las notas de un array
+    let arrayNotasReduce = [4,7,5];
+
+    let suma = 0;
+
+    suma = arrayNotasReduce.reduce((total,valor) => {
+        return total += valor;
+    }, 0);
+
+    console.log(suma);
+    console.log("");
+
+    let arrayNotasReduce2 = [5.2, 3.9, 6, 9.75, 7.5, 3];
+
+
+    // Si la nota es > que max devuelve la nota, sino (:) devuelve maximo (11)
+    let notaMaxima = arrayNotasReduce2.reduce((max,nota) => nota > max ? nota : max, 11);
+    console.log(notaMaxima);
+    console.log("");
+
+
+    // Integrar un array a partir de varios arrays
+    let integrado = [[0,1], [2,3], [4,5]].reduce(function(a,b) {
+        return a.concat(b);
+    });
+
+    console.log(integrado);
+    console.log("");
+
+
+    // Cadena de montaje, se van añadiendo piezas a la cadena de texto inicial
+    const partesDelCoche = ["asientos", "volante", "puertas", "ruedas", "pintura metalizada"];
+
+    const coche = partesDelCoche.reduce(function (valorAnterior, valorActual) {
+        return `${valorAnterior} ${valorActual},`;
+    }, "Mi coche tiene:");
+
+    console.log(coche); 
