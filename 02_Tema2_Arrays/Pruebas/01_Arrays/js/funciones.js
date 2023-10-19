@@ -208,3 +208,9 @@
     let aprobados2 = arrayNotas.filter((nota) => nota >= 5)
         
     console.log(aprobados2);
+
+
+    // MAP
+    let arrayNotasMap = [5.2, 3.9, 6, 9.75, 7.5, 3];
+
+    let arrayNotasSubidas = arrayNotasMap.map(nota => nota + nota * 0.1);
