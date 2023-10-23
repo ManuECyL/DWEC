@@ -257,4 +257,86 @@
         return `${valorAnterior} ${valorActual},`;
     }, "Mi coche tiene:");
 
-    console.log(coche); 
+    console.log(coche);
+    console.log("");
+
+
+    // FOREACH
+    arrayNotas.forEach((nota, indice, array) => console.log("Posición: " + indice + ", Elemento: " + nota));
+    console.log("");
+
+
+    // ARRAY.FROM
+    let arrayNuevo = Array.from(arrayNotas, (nota, indice) => console.log(nota + indice));
+    console.log("");
+
+    let pCollection = document.getElementsByTagName('p');
+    
+    let pArray = Array.from(pCollection);
+    console.log(pArray);    
+
+
+    let a  = {id: 2, name:'object 2', address: {street: 'C/ Ajo', num: 3}};
+    let cadena = JSON.stringify(a);
+    console.log(cadena);
+    console.log("");
+
+    // Hace la sentencia anterior a la inversa. Se debe copiar el resultado de la consola de la sencuencia anterior(propiedades del objeto entre comillas) y pegar en este paso y escribilo entre comillas simples.
+    let otraCadena = '{"id":2,"name":"object 2","address":{"street":"C/ Ajo","num":3}}';
+    console.log(otraCadena);
+    console.log("");
+    
+    let otroObjeto = JSON.parse(otraCadena);
+    console.log(otroObjeto);
+    console.log("");
+
+
+    // REST y SPREAD
+
+        // Rest
+        function notaMedia(...notas) {
+            let total = notas.reduce((total,nota) => total += nota);
+            return total/notas.length;
+        }
+
+        console.log(notaMedia(3.6, 6.8)); 
+        console.log(notaMedia(5.2, 3.9, 6, 9.75, 7.5, 3)); 
+
+        console.log("");
+
+        // Spread
+        let array = [1,2,3];
+        console.log(array);
+        console.log(...array);
+
+        console.log(" ");
+
+    
+    // DESESTRUCTURACIÓN DE ARRAYS
+    let arrayNotas4 = [5.2, 3.9, 6, 9.75, 7.5, 3]
+    let [primera, segunda, tercera] = arrayNotas4 // primera = 5.2, segunda = 3.9, tercera = 6
+    // let [primera, , , cuarta] = arrayNotas // primera = 5.2, cuarta = 9.75
+    // let [primera, ...resto] = arrayNotas // primera = 5.2, resto = [3.9, 6, 9.75, 3]
+
+
+    const miProducto = {
+        id: 5,
+        name: 'TV Samsung',
+        units: 3,
+        price: 395.95
+    };
+
+    // Se puede abreviar: function muestraNombre({name, units}) {
+        
+    function muestraNombre({name: name, units: units}) { 
+        console.log('Del producto ' + name + ' hay ' + units + ' unidades')
+    }
+
+    muestraNombre(miProducto); //Del producto TV Samsung hay 3 unidades
+
+
+    let ganadores = ['Márquez', 'Rossi', 'Márquez', 'Lorenzo', 'Rossi', 'Márquez', 'Márquez'];
+    let ganadoresNoDuplicados = new Set(ganadores); // {'Márquez, 'Rossi', 'Lorenzo'}
+    
+    // o si lo queremos en un array:
+    ganadoresNoDuplicados = Array.from(new Set(ganadores)); // ['Márquez, 'Rossi', 'Lorenzo']
