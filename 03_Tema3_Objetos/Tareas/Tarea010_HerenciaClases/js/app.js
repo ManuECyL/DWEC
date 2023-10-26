@@ -1,6 +1,11 @@
+
+
+
 import {Persona} from './clases/clasePersona.js';
 import { Empleado } from './clases/claseEmpleado.js';
 import { Cliente } from './clases/claseCliente.js';
+
+
 
 let persona1 = new Persona('JUAN', 'PÉREZ', 19);
 let empleado1 = new Empleado("federica", "lópez", 25, 22050.2);
