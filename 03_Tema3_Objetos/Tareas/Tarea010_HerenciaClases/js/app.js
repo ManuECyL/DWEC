@@ -1,6 +1,3 @@
-
-
-
 import {Persona} from './clases/clasePersona.js';
 import { Empleado } from './clases/claseEmpleado.js';
 import { Cliente } from './clases/claseCliente.js';
