@@ -19,7 +19,7 @@ export class Orden {
     agregarProductos(producto) {
 
         if (Producto.contadorProductos >= Orden.MAX_PRODUCTOS) {
-            console.log("\nNo caben más productos en la Orden: " + this.idOrden);
+            console.log("No caben más productos en la Orden: " + this.idOrden);
         
         } else {
             this.arrayProductos.push(producto);
@@ -37,7 +37,7 @@ export class Orden {
     Orden ${this.idOrden}:
         - ${this.arrayProductos.reduce((todos,producto) => todos +=`\n\t\t- ${producto.toString()}`)}
     - - - - - - - - - - - - - - - - -
-    Total: ${(this.calcularTotal()).moneda()}`;
+    Total: ${(this.calcularTotal()).moneda()}\n\n`;
     }
 }
 
