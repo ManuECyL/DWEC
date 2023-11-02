@@ -2,13 +2,16 @@ import { Producto } from "./claseProducto.js";
 export class Orden {
 
     static contadorOrden = 0;
-    static MAX_PRODUCTOS = 5;
-    arrayProductos = [];
+    static get MAX_PRODUCTOS() {
+        return 5;
+    }
+    // static MAX_PRODUCTOS = 5;
+    // arrayProductos = [];
 
     constructor() {
         this._id = ++ Orden.contadorOrden;
         this.arrayProductos = [];
-        Producto.contadorProductos = 0;
+        // Producto.contadorProductos = 0;
     }
 
     get idOrden() {
@@ -18,18 +21,19 @@ export class Orden {
 // Método para añadir productos al ticket
     agregarProductos(producto) {
 
-        if (Producto.contadorProductos >= Orden.MAX_PRODUCTOS) {
+        // if (Producto.contadorProductos >= Orden.MAX_PRODUCTOS)
+        if (this.arrayProductos.length >= Orden.MAX_PRODUCTOS) {
             console.log("No caben más productos en la Orden: " + this.idOrden);
         
         } else {
             this.arrayProductos.push(producto);
-            Producto.contadorProductos ++;
+            // Producto.contadorProductos ++;
         }
     }
 
 // Método para obtener el total del precio de todos los productos del ticket
     calcularTotal() {
-        return this.arrayProductos.reduce((total, producto) => total += producto.precio,0)
+        return this.arrayProductos.reduce((total, producto) => total += producto.precio, 0)
     }
 
     toString() {
@@ -37,9 +41,11 @@ export class Orden {
     Orden ${this.idOrden}:
         - ${this.arrayProductos.reduce((todos,producto) => todos +=`\n\t\t- ${producto.toString()}`)}
     - - - - - - - - - - - - - - - - -
-    Total: ${(this.calcularTotal()).moneda()}\n\n`;
+    Total: ${(this.calcularTotal()).moneda()} \n\n`;
     }
 }
+
+// - ${this.arrayProductos.reduce((todos,producto) => `${todos}\n\t\t- ${producto.toString()}`)}
 
 // Función para devolver el resultado de un precio en euros
 Number.prototype.moneda = function() {
