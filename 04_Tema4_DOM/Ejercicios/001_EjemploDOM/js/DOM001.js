@@ -107,7 +107,13 @@
     let listaLipsum = lipsum.children;
     console.log(listaLipsum[listaLipsum.length - 1]);
 
+    console.log(lipsum.lastElementChild);
+
     console.log("");
 
 
 // 11. El elemento label de 'Escoge sexo'
+    let arrayEtiqueta = Array.from(document.getElementsByTagName('label'));
+    console.log(arrayEtiqueta[arrayEtiqueta.length - 1]);
+    
+    
