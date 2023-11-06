@@ -9,5 +9,5 @@ nuevoSegundoParrafo.innerHTML = 'Este es el <strong>nuevo</strong> segundo párr
 // miDiv.insertBefore(nuevoSegundoParrafo, segundoParrafo);
 
 
-const segundo = document.getElementById('articulos').getElementsByTagName('p');
+const segundo = document.getElementById('articulos').getElementsByTagName('p')[1];
 document.getElementById('articulos').insertBefore(nuevoSegundoParrafo, segundo);
