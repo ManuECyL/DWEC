@@ -115,5 +115,8 @@
 // 11. El elemento label de 'Escoge sexo'
     let arrayEtiqueta = Array.from(document.getElementsByTagName('label'));
     console.log(arrayEtiqueta[arrayEtiqueta.length - 1]);
+
+    let inputSexo1 = document.getElementsByName('sexo');
+    console.log(inputSexo1[0].parentElement);
     
     
