@@ -1,5 +1,3 @@
-/*
-
 // Acceso a los nodos
     console.log(document.childNodes);
 
@@ -50,7 +48,6 @@
     // Añade el parrafo creado antes de la posicion anterior obtenida
     document.getElementById('articulos').insertBefore(nuevoSegundoParrafo, segundo);
 
-*/
 
 // Estilos con DOM
     const primerH1 = document.getElementsByTagName('h1')[0];
