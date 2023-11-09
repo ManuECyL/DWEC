@@ -23,7 +23,9 @@ function sumar() {
       
     // Comprobación de si hay valores en los operandos, si los hay realiza la suma, sino muestra un mensaje de error
     if ((valorA === "") || (valorB === "")) {
-        inputResultado.value = "La operación no incluye números"
+        let error = inputResultado.value = "La operación no incluye números";
+        console.log("Resultado: " + error);
+        return error;
     
     } else {
         let suma = inputResultado.value = Number(valorA) + Number(valorB);
