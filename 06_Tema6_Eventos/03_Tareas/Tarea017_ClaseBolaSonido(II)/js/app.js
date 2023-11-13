@@ -22,4 +22,7 @@ boton.addEventListener("click", function() {
     const nuevaBola = new Bola(radio, posX, posY, colorBola, linearGradient);
     nuevaBola.visualizar();
 
+    let audio = document.createElement("audio");
+    audio.setAttribute("src", "./Sonidos/Claxon.mp3");
+    audio.play();
 });
