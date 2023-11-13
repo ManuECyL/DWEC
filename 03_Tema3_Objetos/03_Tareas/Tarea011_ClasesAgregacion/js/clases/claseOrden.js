@@ -15,7 +15,7 @@ export class Orden {
     }
 
     get idOrden() {
-        return this._id.toLocaleString(undefined,{minimumIntegerDigits: 3, useGrouping: false});;
+        return this._id.toLocaleString(undefined,{minimumIntegerDigits: 3, useGrouping: false});
     }
     
 // Método para añadir productos al ticket
