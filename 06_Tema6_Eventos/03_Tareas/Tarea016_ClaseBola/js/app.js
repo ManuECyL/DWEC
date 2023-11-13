@@ -1,5 +1,5 @@
 import { misFunciones } from "./libreria/misFunciones.js"; 
-import { Bola } from "./clases/claseBola.js"; 
+import { Bola } from "./Clases/claseBola.js"; 
 
 /*
   La línea de abajo es un ejemplo de uso de una función de la librería que debes realizar para que cada objeto de la clase Bola tenga un id="idBolaXXX" 
