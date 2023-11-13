@@ -7,66 +7,42 @@
     • En un documento del navegador, la coordenadas (1,1) se refieren a la esquina superior izquierda.
 */
 
-import { misFunciones } from "../libreria/misFunciones"; 
+import { misFunciones } from "../libreria/misFunciones.js"; 
 
 export class Bola {
 
-    static contadorBola = 0;
-
-    static arrayBolas = new Array();
+    static contadorBola = -1;
+    static arrayBolas = []   
 
     constructor(radio, posX, posY, colorBola, linearGradient) {
-        this._idBola = misFunciones.formatearA3cifras(++ Bola.contadorBola);
-        this._radio = radio;
-        this._posX = posX;
-        this._posY = posY;
-        this._colorBola = colorBola;
-        this._linearGradient = linearGradient;
-        arrayBolas.push(Bola);
+        this.idBola = misFunciones.formatearA3cifras(++ Bola.contadorBola);
+        this.radio = radio;
+        this.posX = posX;
+        this.posY = posY;
+        this.colorBola = colorBola;
+        this.linearGradient = linearGradient;
+        this.crearBola();
+        Bola.arrayBolas.push(this);
     }
 
-    get idBola() {
-        return this._idBola;
-    }
 
-    get radio() {
-        return this._radio;
-    }
+    crearBola() {
+        this.bola = document.createElement('div');
 
-    set radio (radio) {
-        this._radio = radio;
-    }
+        this.bola.id = `idBola${this.idBola}`;
+        this.bola.style.borderRadius = "50%";
+        this.bola.style.width = `${this.radio}px`;
+        this.bola.style.height = `${this.radio}px`;
+        this.bola.style.top = `${this.posY}px`;
+        this.bola.style.left = `${this.posX}px`;
+        this.bola.style.position = "absolute";
+        
+        if (this.linearGradient) {
+            this.bola.style.background = this.linearGradient;
 
-    get posX() {
-        return this._posX;
-    }
-
-    set posX(posX) {
-        this._posX = posX;
-    }
-
-    get posY() {
-        return this._posY;
-    }
-
-    set posY(posY) {
-        this._posY = posY;
-    }
-
-    get colorBola() {
-        return this._colorBola;
-    }
-
-    set colorBola(colorBola) {
-        this._colorBola = colorBola;
-    }
-
-    get linearGradient() {
-        return this._linearGradient;
-    }
-
-    set linearGradient(linearGradient) {
-        this._linearGradient = linearGradient;
+        } else {
+            this.bola.style.backgroundColor = this.colorBola;
+        }        
     }
 
     toString() {
@@ -75,20 +51,6 @@ export class Bola {
 
 
     visualizar() {
-
-        let bola = document.createElement('div');
-
-        // bola.setAttribute('id', this.idBola);
-        bola.style.borderRadius = "50%";
-        bola.style.width = this.radio;
-        bola.style.height = this.radio;
-        bola.style.top = this.posY;
-        bola.style.left = this.posX;
-        bola.style.position = "absolute";
-        this.style.backgroundColor = this.colorBola;
-        this.style.background.linearGradient = this.linearGradient;
-
-        document.body.appendChild(bola);
-  
+        document.body.appendChild(this.bola);
     }
 }
