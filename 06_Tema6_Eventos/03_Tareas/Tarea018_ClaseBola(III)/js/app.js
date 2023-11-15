@@ -5,7 +5,7 @@ function iniciar() {
   console.log("Iniciado");
   const boton = misFunciones.generarBotonCentrado();
   boton.addEventListener("click", nuevaBola);
-  document.body.addEventListener('keydown', misFunciones.escucharTeclas);
+  // document.body.addEventListener('keydown', misFunciones.escucharTeclas);
 }
 
 function nuevaBola() {
@@ -19,5 +19,5 @@ function nuevaBola() {
   nuevaBola.visualizar();
 }
 
-
+iniciar();
 

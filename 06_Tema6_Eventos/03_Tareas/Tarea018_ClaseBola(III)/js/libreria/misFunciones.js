@@ -48,9 +48,12 @@ function desplazarBolas() {
       
       bola.eliminar();
 
-      let arrayEliminados = Bola.arrayBolas
-
-      let divBola = document.getElementById(bola.id);
+      let arrayEliminados = Bola.arrayBolas.splice(0,Bola.arrayBolas.length);
+      arrayEliminados.forEach((bola) => {
+        let nuevaBola = new Bola(bola.radio, bola.posX+10, bola.posY+5, bola.colorBola, bola.linearGradient);
+        nuevaBola.visualizar();
+      });
+      // let divBola = document.getElementById(bola.id);
   });
 }
 
