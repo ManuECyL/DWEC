@@ -14,8 +14,8 @@ let boton = document.createElement('button');
   
 boton.addEventListener("click", function() {
     const radio = misFunciones.indiceAleatorioArray(Bola.arrayRadios);
-    const posX = misFunciones.indiceAleatorioArray(Bola.arrayPosX);
-    const posY = misFunciones.indiceAleatorioArray(Bola.arrayPosY);
+    const posX = misFunciones.generarRandomInt(window.innerHeight-2*radio);
+    const posY = misFunciones.generarRandomInt(window.innerWidth-2*radio);
     const colorBola = misFunciones.indiceAleatorioArray(Bola.arrayColor);
     const linearGradient = misFunciones.indiceAleatorioArray(Bola.arrayLinear);
 

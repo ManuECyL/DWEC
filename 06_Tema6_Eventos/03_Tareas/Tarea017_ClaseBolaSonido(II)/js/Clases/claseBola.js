@@ -36,9 +36,8 @@ export class Bola {
         this.bola.style.position = "absolute";
         this.bola.style.width = `${this.radio}px`;
         this.bola.style.height = `${this.radio}px`;
-        this.bola.style.left = `${this.posX}px`;
-        this.bola.style.right = `${this.posY}px`;
-        this.bola.style.top = `${this.posY}px`;
+        this.bola.style.top = `${this.posX}px`;
+        this.bola.style.left = `${this.posY}px`;
         
         if (this.linearGradient) {
             this.bola.style.background = this.linearGradient;

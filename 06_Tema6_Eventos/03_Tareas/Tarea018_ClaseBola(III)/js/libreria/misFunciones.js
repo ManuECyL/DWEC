@@ -12,8 +12,13 @@ function indiceAleatorioArray(array) {
   return array[indiceAleatorio];
 }
 
+function generarRandomInt(max){
+  return Math.floor(Math.random() * max);
+}
+
 export const misFunciones = {
   formatearA3cifras, 
   numeroAleatorio,
-  indiceAleatorioArray
+  indiceAleatorioArray,
+  generarRandomInt
 }
