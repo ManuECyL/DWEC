@@ -1,24 +1,23 @@
 import { misFunciones } from "./libreria/misFunciones.js"; 
 import { Bola } from "./Clases/claseBola.js"; 
 
-// Bola.arrayBolas.forEach(bola => bola.visualizar()); 
+function iniciar() {
+  console.log("Iniciado");
+  const boton = misFunciones.generarBotonCentrado();
+  boton.addEventListener("click", nuevaBola);
+  document.body.addEventListener('keydown', misFunciones.escucharTeclas);
+}
+
+function nuevaBola() {
+  const radio = misFunciones.indiceAleatorioArray(Bola.arrayRadios);
+  const posX = misFunciones.generarRandomInt(window.innerHeight-2*radio);
+  const posY = misFunciones.generarRandomInt(window.innerWidth-2*radio);
+  const colorBola = misFunciones.indiceAleatorioArray(Bola.arrayColor);
+  const linearGradient = misFunciones.indiceAleatorioArray(Bola.arrayLinear);
+
+  const nuevaBola = new Bola(radio, posX, posY, colorBola, linearGradient);
+  nuevaBola.visualizar();
+}
 
 
-let boton = document.createElement('button');
-  boton.innerHTML = "Booola";
-  boton.style.position = 'absolute';
-  boton.style.left = '50%';
-  boton.style.top = '90%';
-  document.body.appendChild(boton);
 
-  
-boton.addEventListener("click", function() {
-    const radio = misFunciones.indiceAleatorioArray(Bola.arrayRadios);
-    const posX = misFunciones.generarRandomInt(window.innerHeight-2*radio);
-    const posY = misFunciones.generarRandomInt(window.innerWidth-2*radio);
-    const colorBola = misFunciones.indiceAleatorioArray(Bola.arrayColor);
-    const linearGradient = misFunciones.indiceAleatorioArray(Bola.arrayLinear);
-
-    const nuevaBola = new Bola(radio, posX, posY, colorBola, linearGradient);
-    nuevaBola.visualizar();
-});
