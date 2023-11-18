@@ -11,7 +11,6 @@ let arrayImagenes = [
 
 arrayTd.forEach((td, index) => insertarImagen(td, index));
 
-
 function insertarImagen(td, index) {
 
     let img = document.createElement('img');

@@ -1,66 +1,55 @@
-import { Bola } from "./Clases/claseBola.js";
+import { Bola } from "../Clases/claseBola.js";
 
 let intervalo;
 
-function generarBotonCentrado() {
-  let boton = document.createElement('button');
-  boton.innerHTML = "Booola";
-  boton.style.position = 'absolute';
-  boton.style.left = '50%';
-  boton.style.top = '90%';
-  document.body.appendChild(boton);
-
-  return boton;
-}
 
 function formatearA3cifras(numero) {
-    return ("IdBola"+numero.toLocaleString(undefined,{minimumIntegerDigits: 3, useGrouping: false}));
+  return ("IdBola"+numero.toLocaleString(undefined,{minimumIntegerDigits: 3, useGrouping: false}));
 }
 
-function numeroAleatorio(min, max) {
-  return Math.floor((Math.random() * (max - min + 1)) + min);
-}
-
-
-function indiceAleatorioArray(array) {
-  let indiceAleatorio = Math.floor(Math.random() * array.length);
-  return array[indiceAleatorio];
-}
 
 function generarRandomInt(max){
   return Math.floor(Math.random() * max);
 }
 
 
-function eliminarBola() {
+function generarBotonCentrado() {
+  let boton = document.createElement('button');
+    boton.innerHTML = "Booola";
+    boton.style.position = 'absolute';
+    boton.style.left = '50%';
+    boton.style.top = '90%';
 
-  if (Bola.arrayBolas.length > 0) {
-    const ultimaBola = Bola.arrayBolas.pop();
+  document.body.appendChild(boton);
 
-    ultimaBola.eliminar();
-  }
+  return boton;
 }
 
+function pasarAHexadecimal(num){
+    let resultado=num.toString(16);
+    //debido a que da problemas con los colores si cada 
+    // color no tiene 2 dígitos hexadecimales, hay que añadir 0 por la izda
+    if (resultado.length ===1) resultado="0"+resultado;
+    if (resultado.length ===0) resultado="00";
+    return resultado;
+}
 
-function desplazarBolas() {
-  Bola.arrayBolas.forEach((bola, indice, array) => {
-      // bola.desplazar(); // Con método en clase Bola
+function desplazarBola(){
+  Bola.arrayBolas.forEach((bola)=>{
       
-      bola.eliminar();
+      const divBola=document.getElementById(bola.id);
 
-      let arrayEliminados = Bola.arrayBolas.splice(0,Bola.arrayBolas.length);
-      arrayEliminados.forEach((bola) => {
-        let nuevaBola = new Bola(bola.radio, bola.posX+10, bola.posY+5, bola.colorBola, bola.linearGradient);
-        nuevaBola.visualizar();
-      });
-      // let divBola = document.getElementById(bola.id);
+      bola.posX -= 1;
+      bola.posY += 1;
+
+      divBola.style.left=`${bola.posX}px`;
+      divBola.style.top = `${bola.posY}px`;
   });
 }
 
 
 function iniciarMovimiento() {
-
-  intervalo = setInterval(desplazarBolas, 50);
+  intervalo = setInterval(desplazarBola, 50);
 
 }
 
@@ -69,6 +58,23 @@ function pararMovimiento() {
   clearInterval(intervalo);
 }
 
+
+function eliminarBola() {
+
+  if (Bola.arrayBolas.length > 0) {
+
+    const ultimaBola = Bola.arrayBolas[Bola.arrayBolas.length - 1];
+    // const ultimaBola = Bola.arrayBolas.pop();
+
+    if (ultimaBola) {
+
+      ultimaBola.eliminar();
+      Bola.arrayBolas.pop();  // También elimina la bola del array
+    }
+
+
+  }
+}
 
 function escucharTeclas(evento) {
   console.log('Tecla: ' + evento.key);
@@ -95,9 +101,8 @@ function escucharTeclas(evento) {
 
 export const misFunciones = {
   generarBotonCentrado,
+  pasarAHexadecimal,
   formatearA3cifras, 
-  numeroAleatorio,
-  indiceAleatorioArray,
   generarRandomInt,
   escucharTeclas
 }
