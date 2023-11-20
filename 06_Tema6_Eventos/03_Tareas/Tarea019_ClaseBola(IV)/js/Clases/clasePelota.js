@@ -39,7 +39,7 @@ export class Pelota extends Bola {
                 );
 
                 if (distancia <= this.radio + otraPelota.radio) {
-                    // Colisión detectada, invertir velocidades
+                    // Hay colisión, invertir velocidades
                     this.vx = -this.vx;
                     this.vy = -this.vy;
                 }
