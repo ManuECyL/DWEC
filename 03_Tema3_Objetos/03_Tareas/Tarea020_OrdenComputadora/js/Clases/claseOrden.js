@@ -1,45 +1,26 @@
-export class Producto {
+export class Orden {
 
-    static contadorProductos = 0;
+    static contadorOrdenes = 0;
 
-    constructor(nombre, precio) {
-        this._nombre = nombre;
-        this._precio = precio;
-        this._idProducto = ++ Producto.contadorProductos;
+    constructor() {
+        this._idOrden = ++ Orden.contadorOrdenes;
+        this.Computadoras = [];
     }
 
-    get idProducto() {
-        return this._idProducto;
+    get idOrden() {
+        return this._idOrden;
     }
 
-    get nombre() {
-        return `${nombrePropio(this._nombre)}`;
+    agregarComputadora(computadora) {
+        this.Computadoras.push(computadora);
     }
+    
 
-    set nombre(nombre){
-        this._nombre = nombre;
+    mostrarOrden() {
+        return `
+        ======================== Orden:${this.idOrden} =====================
+        ${this.Computadoras.reduce((todos,pc) => todos += pc.toString(),"=============")}
+
+        `;
     }
-
-
-    get precio() {
-        return this._precio;
-    }
-
-    set precio(precio){
-        this._precio = precio;
-    }
-
-    toString() {
-        return `${this.nombre} ${this.precio.moneda()}`;
-    }
-}
-
-// Función para devolver un nombre propio de una cadena
-function nombrePropio(nombre) {
-    return nombre.charAt(0).toUpperCase() + nombre.slice(1).toLowerCase();
-}
-
-// Función para devolver el resultado de un precio en euros
-Number.prototype.moneda = function() {
-    return this.toLocaleString('de-DE', {style: 'currency', currency: 'EUR'});
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Reduce</title>
+
+        <link rel="shortcut icon" href="#" type="image/x-icon">
+    </head>
+
+    <body>
+        
+        <script>
+            class Alumno {
+                constructor(nombre, apellidos, edad) {
+                    this.nombre = nombre;
+                    this.apellidos = apellidos;
+                    this.edad = edad;
+                } 
+            }
+
+            let pepe = new Alumno("pepe", "martinez", 34);
+            let ana = new Alumno("ana", "martinez", 40);
+
+            let arrayAlumnos = [];
+                arrayAlumnos.push(pepe);
+                arrayAlumnos.push(ana);
+
+            let final = arrayAlumnos.reduce((total,alumno) => {
+                return total += alumno.edad;
+            },100);
+
+            console.log(final);
+        </script>
+    </body>
+
+</html>

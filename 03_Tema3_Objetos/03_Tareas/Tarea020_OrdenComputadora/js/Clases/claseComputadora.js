@@ -1,19 +1,23 @@
-export class Producto {
+import { misFunciones } from "../libreria/misFunciones.js";
 
-    static contadorProductos = 0;
+export class Computadora {
 
-    constructor(nombre, precio) {
+    static contadorComputadoras = 0;
+
+    constructor(nombre, monitor, teclado, raton) {
         this._nombre = nombre;
-        this._precio = precio;
-        this._idProducto = ++ Producto.contadorProductos;
+        this._monitor = monitor;
+        this._teclado = teclado;
+        this._raton = raton;
+        this._idComputadora = ++ Computadora.contadorComputadoras;
     }
 
-    get idProducto() {
-        return this._idProducto;
+    get idComputadora() {
+        return this._idComputadora;
     }
 
     get nombre() {
-        return `${nombrePropio(this._nombre)}`;
+        return `${misFunciones.nombrePropio(this._nombre)}`;
     }
 
     set nombre(nombre){
@@ -21,25 +25,31 @@ export class Producto {
     }
 
 
-    get precio() {
-        return this._precio;
+    get monitor() {
+        return this._monitor;
     }
 
-    set precio(precio){
-        this._precio = precio;
+    set monitor(monitor){
+        this._monitor = monitor;
+    }
+
+    get teclado() {
+        return this._teclado;
+    }
+
+    set teclado(teclado){
+        this._teclado = teclado;
+    }
+
+    get raton() {
+        return this._raton;
+    }
+
+    set raton(raton){
+        this._raton = raton;
     }
 
     toString() {
-        return `${this.nombre} ${this.precio.moneda()}`;
+        return `${this.nombre} ${this.monitor} ${this.teclado} ${this.raton}`;
     }
-}
-
-// Función para devolver un nombre propio de una cadena
-function nombrePropio(nombre) {
-    return nombre.charAt(0).toUpperCase() + nombre.slice(1).toLowerCase();
-}
-
-// Función para devolver el resultado de un precio en euros
-Number.prototype.moneda = function() {
-    return this.toLocaleString('de-DE', {style: 'currency', currency: 'EUR'});
 }

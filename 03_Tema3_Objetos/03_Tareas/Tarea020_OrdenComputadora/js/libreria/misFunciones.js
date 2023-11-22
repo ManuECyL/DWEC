@@ -1,5 +1,5 @@
-function formatearA3cifras(numero) {
-    return ("IdBola"+numero.toLocaleString(undefined,{minimumIntegerDigits: 3, useGrouping: false}));
+function formatearA4cifras(numero) {
+    return ("IdBola"+numero.toLocaleString(undefined,{minimumIntegerDigits: 4, useGrouping: false}));
 }
 
 // Función para devolver un nombre propio de una cadena
@@ -9,6 +9,6 @@ function nombrePropio(nombre) {
 
 
 export const misFunciones = {
-    formatearA3cifras, 
+    formatearA4cifras, 
     nombrePropio
   }
