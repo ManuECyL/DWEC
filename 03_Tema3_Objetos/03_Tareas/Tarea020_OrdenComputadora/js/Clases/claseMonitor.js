@@ -7,7 +7,7 @@ export class Monitor {
     constructor(marca, tamaño) {
         this._marca = marca;
         this._tamaño = tamaño;
-        this._idMonitor = ++ Monitor.contadorMonitores;
+        this._idMonitor = 'M' + misFunciones.formatearA4cifras(++ Monitor.contadorMonitores);
     }
 
     get idMonitor() {
@@ -32,7 +32,7 @@ export class Monitor {
     }
 
     toString() {
-        return `Monitor nº: M${this.idMonitor} ${this.nombre} ${this.tamaño}`;
+        return `Monitor nº: ${this.idMonitor}, Marca: ${this.marca}, Tamaño: ${this.tamaño}`;
     }
 }
 

@@ -17,7 +17,7 @@ export class Raton extends DispositivoEntrada{
 
     toString() {
         // return `Ratón nº: ${this.idRaton}${"*".repeat(14)}`;
-        return `Ratón nº: ${this.idRaton}`;
+        return `Raton nº: ${this.idRaton}, Tipo: ${this.tipoEntrada}, Marca:${this.marca}`;
     }
 }
 

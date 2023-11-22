@@ -1,3 +1,5 @@
+import { misFunciones } from "../libreria/misFunciones.js";
+
 export class DispositivoEntrada {
    
     constructor(tipoEntrada, marca) {
@@ -15,14 +17,11 @@ export class DispositivoEntrada {
 
 
     get marca() {
-        return `${misFunciones.nombrePropio(this._marca)}`;
+        const palabra = misFunciones.nombrePropio((this._marca));
+        return `${misFunciones.primeraPalabra(palabra)}`;
     }
 
     set marca(marca){
         this._marca = marca;
-    }
-
-    toString() {
-        return `${this.tipoEntrada} ${this.marca}`;
     }
 }

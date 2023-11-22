@@ -1,4 +1,7 @@
 import { misFunciones } from "../libreria/misFunciones.js";
+// import { Monitor } from './Monitor.js';
+// import { Raton } from './Raton.js';
+// import { Teclado } from './Teclado.js';
 
 export class Computadora {
 
@@ -9,7 +12,7 @@ export class Computadora {
         this._monitor = monitor;
         this._teclado = teclado;
         this._raton = raton;
-        this._idComputadora = ++ Computadora.contadorComputadoras;
+        this._idComputadora = 'PC' + misFunciones.formatearA4cifras(++ Computadora.contadorComputadoras);
     }
 
     get idComputadora() {
@@ -50,6 +53,16 @@ export class Computadora {
     }
 
     toString() {
-        return `${this.nombre} ${this.monitor} ${this.teclado} ${this.raton}`;
+
+        return `
+        --------------------------------------------------------
+        PC id: ${this._idComputadora} ${this._nombre}
+        --------------------------------------------------------
+
+        ${this._monitor.toString()}
+        ${this._teclado.toString()}
+        ${this._raton.toString()}
+        ********************************************************
+        `;
     }
 }

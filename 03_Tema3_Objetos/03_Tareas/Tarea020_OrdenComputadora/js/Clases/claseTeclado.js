@@ -1,11 +1,13 @@
 import { misFunciones } from "../libreria/misFunciones.js";
+import {DispositivoEntrada} from "./claseDispositivoEntrada.js";
 
-export class Teclado {
+export class Teclado extends DispositivoEntrada{
 
     static contadorTeclados = 0;
 
-    constructor() {
-        this._idTeclado = misFunciones.formatearA3cifras(++ Teclado.contadorTeclados);
+    constructor(tipoEntrada, marca) {
+        super(tipoEntrada,marca);
+        this._idTeclado = 'T' + misFunciones.formatearA4cifras(++ Teclado.contadorTeclados);
     }
 
     get idTeclado() {
@@ -14,6 +16,6 @@ export class Teclado {
 
 
     toString() {
-        return `Teclado nº: T${this.idTeclado}`;
+        return `Teclado nº: ${this.idTeclado} , Tipo: ${this.tipoEntrada}, Marca:${this.marca}`;
     }
 }
