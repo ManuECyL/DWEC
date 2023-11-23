@@ -34,10 +34,11 @@ for (let i = 0; i <= document.body.childElementCount + 5; i++) {
 let elementoH1 = document.getElementsByTagName('h1');
 let elementoH2 = document.getElementsByTagName('h2');
 
+
 let ul = document.createElement('ul');
 let li = document.createElement('li');
-    ul.appendChild.elementoH1;
-    li.appendChild.elementoH2;
+    // ul.appendChild(elementoH1);
+    // li.appendChild(elementoH2);
+    ul.appendChild(li);
 
 divPrimero.appendChild(ul);
-divPrimero.a
