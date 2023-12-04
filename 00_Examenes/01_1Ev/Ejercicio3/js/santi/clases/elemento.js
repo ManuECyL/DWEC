@@ -45,7 +45,7 @@ export class Elemento {
         elemento.insertBefore(elementoHTML, elemento.firstChild);
     }
 
-    nuevoEstilo(propiedad, valor) {
-
-    }
+    // nuevoEstilo(propiedad, valor) {
+    //     this.elementoHTML.style[propiedad] = valor;
+    // }
 }

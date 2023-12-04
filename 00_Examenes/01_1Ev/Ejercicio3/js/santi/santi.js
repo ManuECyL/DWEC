@@ -1,6 +1,7 @@
 import { Elemento } from "./clases/elemento.js";
+import { Texto } from "./clases/texto.js";
 
-let parrafo1 = new Elemento('p');
+let parrafo1 = new Texto('p');
     parrafo1.innerText = 'Lo que queramos';
     parrafo1.agregarPrimero(document.body);
 
