@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Tarea 22 - Juegos Dados</title>
+
+        <style>
+
+            body {
+                text-align: center;
+                background-color: blue;
+                color: white;
+            }
+
+            table {
+                margin: auto;
+                border-collapse: collapse;
+                border: 2px solid rgb(255, 255, 255);
+            }
+
+            th, td {
+                text-align: center;
+                border: 2px solid rgb(255, 255, 255);
+                padding: 20px;
+                width: 150px;
+                font-size: 20px;
+            }
+
+            td {
+                height: 250px;
+            }
+
+            #apuesta {
+                text-align: center;
+                width: 40px;
+                height: 20px;
+                margin-top: 10px;
+            }
+
+            #resultado {
+                font-size: 100px;
+                vertical-align: bottom;
+                color: rgb(26, 241, 26);
+            }
+
+
+            #tirar {
+                width: 80px;
+                height: 100px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Tarea 22 - Juegos Dados</h1>
+
+        <table>
+
+            <tr>
+                <th>Partida</th>
+                <th>Apuesta € <br>
+                    <input type="number" id="apuesta" value="5" min="1" max="100">
+                </th>
+                <th>Jugada</th>
+            </tr>
+
+            <tr>
+                <td>Restante:</td>
+                <td id="resultado">
+                    
+                    <br>
+                    <input type="button" id="tirar" value="Tirar">
+                </td>
+                <td>Apostado:</td>
+            </tr>
+        </table>
+
+        <div id="mensaje">
+
+        </div>
+        
+    
+        <script src="js/app.js"></script>
+    </body>
+
+</html>
