@@ -42,6 +42,46 @@
                 margin-right: 20px;
             }
 
+            .hidden {
+                display: none;
+            }
+
+            #divConfigurar {
+                text-align: center;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                width: 500px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgb(129, 25, 189);
+                font-size: 20px;
+                color: white;
+            }
+
+            #elementosConfigurar {
+                text-align: left;
+                margin-left: 20px;
+            }
+
+            #elementosConfigurar input{
+                text-align: right;
+            }
+
+            #iniciarJuego {
+                background-color: rgb(170, 28, 163);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 20px;
+                padding: 8px;
+                width: 170px;
+                box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.75);
+                cursor: pointer;
+            }
+
             table {
                 margin: auto;
                 border-collapse: collapse;
@@ -90,16 +130,46 @@
 
     <body>
     
+        <!-- Página de configurar -->
+        <div id="divConfigurar" class="hidden">
+
+            <h1>Configurar Parámetros del Juego de Dados</h1>
+
+            <div id="elementosConfigurar">
+
+                <label for="Dinero Restante">
+                    Dinero Restante: <input type="number" id="dineroRestante" min="1" max="1000">
+                </label>
+    
+                <br>
+    
+                <label for="Valor inicial apuestas">
+                    Valor inicial de las apuestas: <input type="number" id="valorInicial" min="1" max="1000">
+                </label>
+    
+                <br>
+    
+                <label for="Sonido">
+                    Sonido activado: <input type="checkbox" id="sonido">
+                </label>
+    
+                <br>
+    
+                <label for="Color Fondo">
+                    Color Fondo: <input type="color" id="colorFondo">
+                </label>                
+            </div>
+
+
+            <br><br>
+
+            <button id="iniciarJuego">Iniciar Juego</button>
+
+        </div>
+
         <div id="juego"> 
 
             <h1>Tarea 22 - Juegos Dados <input type="button" value="Configurar" id="configurar" onclick="configurar()"></h1>
-
-            <div id="divConfigurar" class="hidden">
-
-                <label for=""></label>
-
-            </div>
-
 
             <table>
     
