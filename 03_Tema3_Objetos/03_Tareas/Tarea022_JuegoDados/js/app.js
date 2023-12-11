@@ -28,7 +28,7 @@ function configurar() {
     // Configuración de los valores actuales
     dineroRestanteInput.value = dineroRestante;
     valorInicialInput.value = valorInicial;
-    sonidoCheckbox.checked = sonidoActivado;
+    sonidoCheckbox.checked = sonidoCheckbox;
     colorFondoInput.value = juegoDiv.style.backgroundColor;
 
     // Manejar clic en el botón de aplicar configuración
