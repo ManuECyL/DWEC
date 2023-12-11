@@ -33,6 +33,7 @@ function configurar() {
 
     // Manejar clic en el botón de aplicar configuración
     iniciarJuegoButton.addEventListener('click', function() {
+
         // Aplicar la configuración según los valores de los campos
         dineroRestante = parseInt(dineroRestanteInput.value) || 0;
         valorInicial = parseInt(valorInicialInput.value) || 0;
@@ -40,12 +41,6 @@ function configurar() {
         sonidoActivado = sonidoCheckbox.checked;
         juegoDiv.style.backgroundColor = colorFondoInput.value;
         divConfigurar.style.backgroundColor = colorFondoInput.value;
-
-        // Restablecer el juego
-        restante.innerHTML = "Restante: " + dineroRestante + "€";
-        resultado.innerHTML = "";
-        mensaje.innerHTML = "";
-        apostado.innerHTML = "Apostado: 0€";
 
         // Ocultar la página de configuración
         divConfigurar.classList.add('hidden');
