@@ -5,25 +5,52 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="shortcut icon" href="#" type="image/x-icon">
+
         <title>Tarea 22 - Juegos Dados</title>
 
         <style>
 
             body {
+                display: flex;
+                align-items: center;
+                justify-content: center;               
+                margin: 0;
+            }
+
+            #juego {
                 text-align: center;
-                background-color: rgb(2, 2, 255);
+                background-color: rgb(2, 141, 255);
                 color: white;
+                padding: 10px;
+                border-radius: 10px;
+                margin-top: 20px;
+                width: 700px;
+            }
+
+            #configurar {
+                background-color: rgb(170, 28, 28);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 20px;
+                padding: 8px;
+                width: 120px;
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                cursor: pointer;
+                float: right;
+                margin-right: 20px;
             }
 
             table {
                 margin: auto;
                 border-collapse: collapse;
-                border: 2px solid rgb(255, 255, 255);
+                border: 2px solid rgb(0, 0, 0);
             }
 
             th, td {
                 text-align: center;
-                border: 2px solid rgb(255, 255, 255);
+                border: 2px solid rgb(0, 0, 0);
                 padding: 20px;
                 width: 150px;
                 font-size: 20px;
@@ -53,41 +80,52 @@
                 cursor: pointer;
                 vertical-align: bottom;
             }
+
+            #mensaje {
+                font-size: 30px;
+                color: rgb(255, 255, 255);
+            }
         </style>
     </head>
 
     <body>
-        <h1>Tarea 22 - Juegos Dados</h1>
+    
+        <div id="juego"> 
 
-        <table>
+            <h1>Tarea 22 - Juegos Dados <input type="button" value="Configurar" id="configurar" onclick="configurar()"></h1>
 
-            <tr>
-                <th>Partida</th>
+            <table>
+    
+                <tr>
+                    <th>Partida</th>
+    
+                    <th>Apuesta € <br>
+                        <input type="number" id="apuesta" min="1" max="100" onchange="actualizarApuesta()">
+                    </th>
+                    
+                    <th>Jugada</th>
+                </tr>
+    
+                <tr>
+                    <td id="restante">Restante:</td>
+    
+                    <td>
+                        <p id="resultado"></p>
+    
+                        <img src="imagenes/tirar.png" id="tirar" onclick="apostar()">
+                    </td>
+    
+                    <td id="apostado">Apostado:</td>
+                </tr>
+            </table>
+    
+            <br>
+    
+            <div id="mensaje">
+    
+            </div>
 
-                <th>Apuesta € <br>
-                    <input type="number" id="apuesta" min="1" max="100" onchange="actualizarApuesta()">
-                </th>
-                
-                <th>Jugada</th>
-            </tr>
-
-            <tr>
-                <td id="restante">Restante:</td>
-
-                <td>
-                    <p id="resultado"></p>
-
-                    <img src="imagenes/tirar.png" id="tirar" onclick="apostar()">
-                </td>
-
-                <td id="apostado">Apostado:</td>
-            </tr>
-        </table>
-
-        <div id="mensaje">
-
-        </div>
-        
+        </div>      
     
         <script src="js/app.js"></script>
     </body>
