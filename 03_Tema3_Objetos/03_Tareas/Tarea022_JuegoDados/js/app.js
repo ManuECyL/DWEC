@@ -36,8 +36,10 @@ function configurar() {
         // Aplicar la configuración según los valores de los campos
         dineroRestante = parseInt(dineroRestanteInput.value) || 0;
         valorInicial = parseInt(valorInicialInput.value) || 0;
+        apuesta.value = parseInt(valorInicialInput.value) || 0;
         sonidoActivado = sonidoCheckbox.checked;
         juegoDiv.style.backgroundColor = colorFondoInput.value;
+        divConfigurar.style.backgroundColor = colorFondoInput.value;
 
         // Restablecer el juego
         restante.innerHTML = "Restante: " + dineroRestante + "€";
@@ -49,22 +51,6 @@ function configurar() {
         divConfigurar.classList.add('hidden');
         divJuego.classList.remove('hidden');
     });     
-}
-
-
-function actualizarApuesta() {
-
-    let apuesta = parseInt(document.getElementById("apuesta").value);
-
-    if (apuesta > dineroRestante) {
-        alert("No puede apostar más de lo que tiene");
-
-    } else if (isNaN(apuesta)) {
-        apostado.innerHTML = "Apostado: 0€";
-
-    } else {
-        apostado.innerHTML = "Apostado: " + apuesta + "€";
-    }
 }
 
 
@@ -80,19 +66,18 @@ function apostar() {
 
     } else {
 
+        apostado.innerHTML = "Apostado: " + apuesta + "€";
+        
         let resultado = document.getElementById("resultado");
-        let numeroApuesta = numeroAleatorio(1, 100);
-            resultado.innerHTML = numeroApuesta;
-
-        let numeroApuestaString = numeroApuesta.toString();
-        let numero1 = parseInt(numeroApuestaString[0]);
-        let numero2 = parseInt(numeroApuestaString[1] || 0); // Si no hay segundo número, se pone 0
+        let dado1 = numeroAleatorio(1, 6);
+        let dado2 = numeroAleatorio(1, 6);
+            resultado.innerHTML = dado1 + " " + dado2;
         
         let mensaje = document.getElementById("mensaje");
 
-        let sumaNumeros = numero1 + numero2;
+        let sumaDados = dado1 + dado2;
 
-        switch (sumaNumeros) {
+        switch (sumaDados) {
             
             case 7:
                 mensaje.style.backgroundColor = "green";
@@ -141,7 +126,7 @@ function apostar() {
                 
             default:
                 mensaje.style.backgroundColor = null;
-                mensaje.innerHTML = sumaNumeros + ": Vuelve a lanzar";
+                mensaje.innerHTML = sumaDados + ": Vuelve a lanzar";
                 break;
         }
 

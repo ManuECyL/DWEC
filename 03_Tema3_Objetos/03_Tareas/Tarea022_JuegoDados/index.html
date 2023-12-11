@@ -56,7 +56,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background-color: rgb(129, 25, 189);
+                background-color: rgb(2, 141, 255);
                 font-size: 20px;
                 color: white;
             }
@@ -177,7 +177,7 @@
                     <th>Partida</th>
     
                     <th>Apuesta € <br>
-                        <input type="number" id="apuesta" min="1" max="100" onchange="actualizarApuesta()">
+                        <input type="number" id="apuesta" min="1" max="100">
                     </th>
                     
                     <th>Jugada</th>
@@ -187,7 +187,7 @@
                     <td id="restante">Restante:</td>
     
                     <td>
-                        <p id="resultado"></p>
+                        <p id="resultado">- -</p>
     
                         <img src="imagenes/tirar.png" id="tirar" onclick="apostar()">
                     </td>
