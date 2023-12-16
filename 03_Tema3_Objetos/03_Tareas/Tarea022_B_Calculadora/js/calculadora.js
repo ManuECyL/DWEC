@@ -8,75 +8,66 @@
 
 */
 
-const numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const operaciones = ['+', '-', '*', '/', '='];
-const historial = [];
+const numeros = [];
 
 function insertar(num) {
-    const valor = $('#historial').val(); 
-    $('#historial').val(valor + num);
+
+    const valor = $('#historial').val();
+
+    // Si el número es un '=' y ya existe un '=' en el historial, no hace nada
+    if (num == '=' && valor.includes('=')) {
+        return;
+
+    } else {
+        $('#historial').val(valor + num);
+    }
+
+    // Si el número es '=', evalúa la operación en el historial
+    if (num == '=') {
+        const resultado = eval(valor);
+        $('#operaciones').val(resultado);
+        return;
+    }
     
     let verOperacion = $('#operaciones').val();
 
-    if (verOperacion != '+' && verOperacion != '-' && verOperacion != '*' && verOperacion != '/' && verOperacion != '=') {
+    // Si el valor es un operador, no se añade al input
+    if (num == '+' || num == '-' || num == '*' || num == '/' || num == '=') { 
+        $('#operaciones').val(verOperacion);
+    
+    // Si se introduce otro número, se añade al input #operaciones eliminando el anterior
+    } else if (verOperacion.length >= 1) {
+        $('#operaciones').val(verOperacion.substring(0,verOperacion.length-1));
+        $('#operaciones').val(num);
+
+    } else {
         $('#operaciones').val(verOperacion + num);
-        
-    }
-    
+        numeros.push(num);
+        console.log(numeros);
+    } 
 }
 
-function operacion() {
-    
-    switch (operaciones) {
-        case '+':
-            sumar();
-            break;
-
-        case '-':
-            restar();
-            break;
-
-        case '*':
-            multiplicar();
-            break;
-
-        case '/':
-            dividir();
-            break;
-
-        case '=':
-            igual();
-            break;
-
-        case 'CE':
-            limpiar();
-            break;
-
-        default:
-            break;
-    }
-}
 
 function sumar() {
-    const suma = numeros.reduce((acumulador, valorActual) => {
-        return acumulador + valorActual;
+    numeros.reduce((acumulador, valorActual) => {
+        return $('#operaciones').val(acumulador + valorActual);
     }, 0);
 }
 
 function restar() {
-    const resta = numeros.reduce((acumulador, valorActual) => {
+    numeros.reduce((acumulador, valorActual) => {
         return acumulador - valorActual;
     }, 0);
 }
 
 function multiplicar() {
-    const multiplicacion = numeros.reduce((acumulador, valorActual) => {
+    numeros.reduce((acumulador, valorActual) => {
         return acumulador * valorActual;
     }, 0);
 }
 
 function dividir() {
-    const division = numeros.reduce((acumulador, valorActual) => {
+    numeros.reduce((acumulador, valorActual) => {
         return acumulador / valorActual;
     }, 0);
 }
@@ -86,17 +77,6 @@ function limpiar() {
     $('#historial').val('');
 }
 
-function igual() {
-    const resultado = numeros.reduce((acumulador, valorActual) => {
-        return acumulador = valorActual;
-    }, 0);
-}
-
-// function historico() {
-//     const historico = numeros.reduce((acumulador, valorActual) => {
-//         return acumulador + valorActual;
-//     }, 0);
-// }
 
 function retroceso() {
     const valor = $('#operaciones').val(); 
