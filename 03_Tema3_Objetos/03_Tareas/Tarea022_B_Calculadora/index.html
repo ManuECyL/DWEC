@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+        <title>Calculadora</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    
+    <body>
+        <h1 style="text-align: center; text-shadow: 1px 1px white;">Tarea 22 B - Calculadora <br> Manuel Chillón</h1>
+
+        <div id="calculadora">
+
+            
+            <form action="">
+                <input type="text" class="calculos" id="historial" readonly>
+                <input type="text" class="calculos" id="operaciones" readonly>
+            </form>
+
+            <table>
+                <tr>
+                    <td><input class="boton" type="button" value="÷" onclick="insertar('/')"></td>
+                    <td><input class="boton" type="button" value="x" onclick="insertar('*')"></td>
+                    <td><input class="boton" type="button" value="«" onclick="retroceso()"></td>
+                    <td><input class="boton" type="button" value="CE" onclick="limpiar()"></td>
+                </tr>
+
+                <tr>
+                    <td><input class="boton" type="button" value="7" onclick="insertar('7')"></td>
+                    <td><input class="boton" type="button" value="8" onclick="insertar('8')"></td>
+                    <td><input class="boton" type="button" value="9" onclick="insertar('9')"></td>
+                    <td><input class="boton" type="button" value="-" onclick="insertar('-')"></td>
+                </tr>
+
+                <tr>
+                    <td><input class="boton" type="button" value="4" onclick="insertar('4')"></td>
+                    <td><input class="boton" type="button" value="5" onclick="insertar('5')"></td>
+                    <td><input class="boton" type="button" value="6" onclick="insertar('6')"></td>
+                    <td><input class="boton" type="button" value="+" onclick="insertar('+')"></td>
+                </tr>
+
+                <tr>
+                    <td><input class="boton" type="button" value="1" onclick="insertar('1')"></td>
+                    <td><input class="boton" type="button" value="2" onclick="insertar('2')"></td>
+                    <td><input class="boton" type="button" value="3" onclick="insertar('3')"></td>
+                    <td rowspan="2"><input class="boton" style="height: 80px;" type="button" value="=" onclick="igual(), insertar('=')"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><input class="boton" style="width: 110px;" type="button" value="0"  onclick="insertar('0')"></td>
+                    <td><input class="boton" type="button" value="." onclick="insertar(',')"></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script src="js/calculadora.js"></script>
+    </body>
+</html>
