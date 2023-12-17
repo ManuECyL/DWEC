@@ -17,6 +17,7 @@ html {
     margin-right: 5px;
     margin-left: 5px;
     border: 2px solid black;
+    text-align: right;
 }
 
 .boton {
@@ -24,4 +25,5 @@ html {
     padding: 8px;
     width: 50px;
     border: 2px solid black;
+    cursor: pointer;
 }

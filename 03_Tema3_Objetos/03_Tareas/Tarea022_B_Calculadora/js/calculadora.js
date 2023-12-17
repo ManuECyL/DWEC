@@ -9,49 +9,49 @@
 */
 
 const numeros = [];
+const historial = document.getElementById('historial');
+const datos = document.getElementById('datos');
 
-function insertar(num) {
-
-    const valor = $('#historial').val();
-
-    // Si el número es un '=' y ya existe un '=' en el historial, no hace nada
-    if (num == '=' && valor.includes('=')) {
-        return;
-
-    } else {
-        $('#historial').val(valor + num);
-    }
-
-    // Si el número es '=', evalúa la operación en el historial
-    if (num == '=') {
-        const resultado = eval(valor);
-        $('#operaciones').val(resultado);
-        return;
-    }
+function insertar(caracter) {
     
-    let verOperacion = $('#operaciones').val();
-
-    // Si el valor es un operador, no se añade al input
-    if (num == '+' || num == '-' || num == '*' || num == '/' || num == '=') { 
-        $('#operaciones').val(verOperacion);
-    
-    // Si se introduce otro número, se añade al input #operaciones eliminando el anterior
-    } else if (verOperacion.length >= 1) {
-        $('#operaciones').val(verOperacion.substring(0,verOperacion.length-1));
-        $('#operaciones').val(num);
-
+    // Si el caracter es un operador, no se añade al input y se mantiene el valor existente
+    if (comprobarOperador(caracter)) {
+        historial.value +=  datos.value + caracter;
+        datos.value = '';
+           
+    } else if (datos.value == '0') {
+        datos.value = caracter;
+        
     } else {
-        $('#operaciones').val(verOperacion + num);
-        numeros.push(num);
+        datos.value += caracter;
+        numeros.push(caracter);
         console.log(numeros);
     } 
 }
 
+// Comprobar si el caracter que se pulsa es un operador
+function comprobarOperador(caracter) {
+
+    const operadores = ['+', '-', '*', '/', '='];
+
+    const esOperador = operadores.reduce((acumulador, valorActual) => {       
+        return acumulador || valorActual == caracter;
+    }, false);
+
+    return esOperador;
+}
+
+
 
 function sumar() {
-    numeros.reduce((acumulador, valorActual) => {
-        return $('#operaciones').val(acumulador + valorActual);
-    }, 0);
+
+    const resultado = numeros.reduce((acumulador, valorActual) => {
+        return acumulador + valorActual;
+    });
+
+    console.log(resultado);
+
+    datos.value = resultado;
 }
 
 function restar() {
@@ -72,33 +72,20 @@ function dividir() {
     }, 0);
 }
 
+
+// Función para vaciar los inputs
 function limpiar() {
-    $('#operaciones').val(0);
-    $('#historial').val('');
+    datos.value = 0;
+    historial.value = '';
 }
 
 
+// Función para borrar el último caracter del input
 function retroceso() {
-    const valor = $('#operaciones').val(); 
-    $('#operaciones').val(valor.substring(0,valor.length-1)); 
+    const valor = datos.value; 
+    
+    // Comprobamos si existe algún caracter en el input
+    if (valor.length > 0) {
+        datos.value = valor.substring(0, valor.length-1);
+    }
 }
-
-
-
-// function insertar(num) {
-//     let valor = $('#operaciones').val(); 
-//     $('#operaciones').val(valor + num); 
-// }
-
-// function limpiar() {
-//     $('#operaciones').val('');
-// }
-
-
-
-// function igual() {
-//     let resultado = eval($('#operaciones').val());
-//     $('#operaciones').val(resultado); 
-//     console.log(resultado);
-//     $('#historial').val(resultado);
-// }

@@ -20,13 +20,13 @@
             
             <form action="">
                 <input type="text" class="calculos" id="historial" readonly>
-                <input type="text" class="calculos" id="operaciones" readonly>
+                <input type="text" class="calculos" id="datos" readonly>
             </form>
 
             <table>
                 <tr>
-                    <td><input class="boton" type="button" value="÷" onclick="insertar('/')"></td>
-                    <td><input class="boton" type="button" value="x" onclick="insertar('*')"></td>
+                    <td><input class="boton" type="button" value="÷" onclick="insertar('/'); dividir()"></td>
+                    <td><input class="boton" type="button" value="x" onclick="insertar('*'); multiplicar()"></td>
                     <td><input class="boton" type="button" value="«" onclick="retroceso()"></td>
                     <td><input class="boton" type="button" value="CE" onclick="limpiar()"></td>
                 </tr>
@@ -35,14 +35,14 @@
                     <td><input class="boton" type="button" value="7" onclick="insertar('7')"></td>
                     <td><input class="boton" type="button" value="8" onclick="insertar('8')"></td>
                     <td><input class="boton" type="button" value="9" onclick="insertar('9')"></td>
-                    <td><input class="boton" type="button" value="-" onclick="insertar('-')"></td>
+                    <td><input class="boton" type="button" value="-" onclick="insertar('-'); restar()"></td>
                 </tr>
 
                 <tr>
                     <td><input class="boton" type="button" value="4" onclick="insertar('4')"></td>
                     <td><input class="boton" type="button" value="5" onclick="insertar('5')"></td>
                     <td><input class="boton" type="button" value="6" onclick="insertar('6')"></td>
-                    <td><input class="boton" type="button" value="+" onclick="insertar('+')"></td>
+                    <td><input class="boton" type="button" value="+" onclick="insertar('+'); sumar()"></td>
                 </tr>
 
                 <tr>
