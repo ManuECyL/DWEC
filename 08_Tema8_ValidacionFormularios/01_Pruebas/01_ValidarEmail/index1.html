@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="es">
+
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+        <title>Formulario con Validación</title> 
+
+        <style> 
+            input:invalid { 
+                border: 2px dashed red; 
+            } 
+        
+            input:valid { 
+                border: 2px solid greenyellow; 
+            } 
+        </style> 
+    </head> 
+
+    <body> 
+        <h2>Formulario de Validación</h2> 
+    
+        <form id="myForm"> 
+            <label for="nombre">Nombre:</label> 
+            <input type="text" id="nombre" name="nombre" >  
+            <br> 
+    
+            <label for="apellidos">Apellidos:</label> 
+            <input type="text" id="apellidos" name="apellidos"  required="true">  
+            <br> 
+    
+            <label for="email">Correo electrónico:</label> 
+            <input type="email" id="email" name="email"> 
+            <br> 
+    
+            <input type="submit" value="Enviar"> 
+        </form> 
+
+        <script>
+        // Personalizar el mensaje que sale en el email al comprobarse
+
+            // Obtenemos el elemento html de "email"
+            const email1 = document.getElementById("email");
+            const email2 = myForm.email;
+
+            // Mismo resultado
+            console.log(email1);
+            console.log(email2);
+
+            // Función para comprobar la expresión regular del email
+            function comprobarEmail() {
+
+                console.log(this);
+
+                // if (!this.checkValidity()) {
+                //     console.log("fallo");
+
+                //     // Modificamos el mensaje de error al Enviar
+                //     this.setCustomValidity("Error de formato email");
+                
+                // } else {
+                //     // Si el email es correcto eliminamos el mensaje de error
+                //     this.setCustomValidity("");
+                // }
+
+                if (email.validity.typeMismatch) { 
+                    // Modificamos el mensaje de error al Enviar
+                    email.setCustomValidity("!Introduzca dirección de correo electrónico!"); 
+
+                } else { 
+                    email.setCustomValidity(""); 
+                }
+
+            }
+
+            // Añadir un evento de escucha al input email
+            email1.addEventListener('input', comprobarEmail);
+
+        </script>
+        
+    </body> 
+
+</html>
