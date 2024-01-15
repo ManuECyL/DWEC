@@ -17,13 +17,16 @@
             <h2>Formulario de Registro ver 1</h2>
     
             <form novalidate id="registroForm" nombre="f1">
+            <!-- <form novalidate id="registroForm" nombre="f1" onsubmit="return validarFormulario()"> Opcion 2-->
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
+                <!-- <input type="text" id="nombre" name="nombre" required pattern="[A-Z]+"> Opcion 4 -->
                 <span id="errorNombre" class="error"></span>
                 <br>
     
                 <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" name="email" required>
+                <!-- <input type="email" id="email" name="email" required pattern="\S+@\S+\.\S+"> Opcion 3 -->
                 <span id="errorEmail" class="error"></span>
                 <br>
     
@@ -58,7 +61,10 @@
                 <input type="submit" value="Registrarse">
             </form>
 
-            <script src="funciones1.js"></script>
+            <!-- <script src="funciones1.js"></script> -->
+            <!-- <script src="funciones2.js"></script> -->
+            <!-- <script src="funciones3.js"></script> -->
+            <script src="funciones4.js"></script>
 
     </body>
 </html>

@@ -27,22 +27,20 @@ document.getElementById('registroForm').addEventListener('submit', function(even
     limpiarErrores();
 
     // Validar Nombre
-    if (nombre.value === "") {
-        mostrarError('errorNombre', "El nombre está vacío");
-        return;
+    if (!nombre.checkValidity()) {
+        mostrarError('errorNombre', "Escribe un nombre correcto");
     }
 
     // Validar Email
-    $expEmail = /\S+@\S+\.\S+/;
-
-    if (email.value === "" || !$expEmail.test(email.value)) {
-        mostrarError('errorEmail', "Formato Email incorrecto");
-        return;
+    if (!email.checkValidity()) {
+        mostrarError('errorEmail', "Escribe un email correcto");
     }
 
 
     // Si no hay errores, enviamos el formulario
-    this.submit();
-    window.alert("Enviado correctamente");
+    if (document.getElementById('registroForm').checkValidity()) {
+        alert("Enviado correctamente");
+        this.onsubmit();
+    }
 
 });

@@ -1,6 +1,7 @@
 // Constantes con los campos del formulario
 const nombre = document.getElementById('nombre');
 const email = document.getElementById('email');
+const contrasena = document.getElementById('contrasena');
 
 // Función para mostrar los errores
 function mostrarError(idSpan, texto) {
@@ -27,22 +28,24 @@ document.getElementById('registroForm').addEventListener('submit', function(even
     limpiarErrores();
 
     // Validar Nombre
-    if (nombre.value === "") {
-        mostrarError('errorNombre', "El nombre está vacío");
-        return;
+    if (!nombre.checkValidity()) {
+        mostrarError('errorNombre', nombre.validationMessage);
     }
 
     // Validar Email
-    $expEmail = /\S+@\S+\.\S+/;
-
-    if (email.value === "" || !$expEmail.test(email.value)) {
-        mostrarError('errorEmail', "Formato Email incorrecto");
-        return;
+    if (!email.checkValidity()) {
+        mostrarError('errorEmail', email.validationMessage);
     }
 
+    // Validar Contraseña
+    if (!contrasena.checkValidity()) {
+        mostrarError('errorContrasena', contrasena.validationMessage);
+    }
 
     // Si no hay errores, enviamos el formulario
-    this.submit();
-    window.alert("Enviado correctamente");
+    if (document.getElementById('registroForm').checkValidity()) {
+        alert("Enviado correctamente");
+        this.onsubmit();
+    }
 
 });

@@ -17,11 +17,10 @@ function limpiarErrores() {
     });
 }
 
-// Añadimos evento al formulario para validar los datos
-document.getElementById('registroForm').addEventListener('submit', function(evento) {
-    
-    // Evitamos que se realice el evento antes de tiempo
-    evento.preventDefault();
+// Función para validar el formulario
+function validarFormulario() {
+
+    let hayError = false;
 
     // Borramos todos los mensajes de error del formulario
     limpiarErrores();
@@ -29,7 +28,7 @@ document.getElementById('registroForm').addEventListener('submit', function(even
     // Validar Nombre
     if (nombre.value === "") {
         mostrarError('errorNombre', "El nombre está vacío");
-        return;
+        hayError = true;
     }
 
     // Validar Email
@@ -37,12 +36,14 @@ document.getElementById('registroForm').addEventListener('submit', function(even
 
     if (email.value === "" || !$expEmail.test(email.value)) {
         mostrarError('errorEmail', "Formato Email incorrecto");
-        return;
+        hayError = true;
     }
 
-
     // Si no hay errores, enviamos el formulario
-    this.submit();
-    window.alert("Enviado correctamente");
+    return !hayError;
 
-});
+    if (document.getElementById('registroForm').checkValidity()) {
+        window.alert("Enviado correctamente");
+        return true;
+    }
+};
