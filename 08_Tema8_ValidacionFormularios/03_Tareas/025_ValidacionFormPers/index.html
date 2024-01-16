@@ -13,68 +13,64 @@
             .error {
                 color: red;
             }
-
-            input:invalid { 
-                border: 2px dashed red; 
-            }
         </style>
 
     </head>
 
     <body>
-        <form id="formPers" onsubmit="return validarFormulario()">
+
+        <form novalidate id="formTarea25" name="f25" onsubmit="validaFormulario(event)">
 
             <label for="nombre">Nombre: </span> 
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre" minlength="2" maxlength="50"> 
-                <span class="error">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required> 
+                <span id="errorNombre" class="error">
             </label> 
 
             <br><br> 
 
             <label for="mail">Correo electrónico: 
-                <input type="email" id="mail" name="mail" placeholder="email@email.com"> 
-                <span class="error"></span> 
+                <input type="email" id="mail" name="mail" placeholder="email@email.com" required> 
+                <span id="errorEmail" class="error"></span> 
             </label>
 
             <br><br> 
 
-            <label for="contraseña">Contraseña: 
-                <input type="password" id="contraseña" name="contraseña" placeholder="Mínimo 8 caracteres" minlength="8"> 
-                <span class="error"></span> 
+            <label for="contrasena">Contraseña: 
+                <input type="password" id="contrasena" name="contrasena" required> 
+                <span id="errorContrasena" class="error"></span> 
             </label>
 
             <br><br> 
 
-            <label for="contraseñaRep">Repetir Contraseña: 
-                <input type="password" id="contraseñaRep" name="contraseñaRep"> 
-                <span class="error"></span> 
+            <label for="contrasenaRep">Repetir Contraseña: 
+                <input type="password" id="contrasenaRep" name="contrasenaRep" required> 
+                <span id="errorContrasenaRep" class="error"></span> 
             </label>
 
             <br><br> 
 
             <label for="edad">Edad: 
-                <input type="text" id="edad" name="edad" min="18" max="99" placeholder="Número entre 18 y 99"> 
-                <span class="error"></span> 
+                <input type="text" id="edad" name="edad" required> 
+                <span id="errorEdad" class="error"></span> 
             </label>
 
             <br><br> 
 
-            <label for="genero">Género:</label>
+            <label>Género:</label>
 
-            <input type="radio" id="hombre" name="genero" value="hombre">
-            <label for="hombre">Hombre</label>
+            <input type="radio" id="masculino" name="genero" value="masculino" required>
+            <label for="masculino">Masculino</label>
 
-            <input type="radio" id="mujer" name="genero">
-            <label for="mujer">Mujer</label>
+            <input type="radio" id="femenino" name="genero" value="femenino" required>
+            <label for="femenino">Femenino</label>
 
-            <span class="error"></span> 
+            <span id="errorGeneros" class="error"></span> 
             
-
             <br><br> 
 
             <label for="terminos">Términos y Condiciones: 
-                <input type="checkbox" id="terminos" name="terminos">
-                <span class="error"></span> 
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <span id="errorTerminos" class="error"></span> 
             </label>
 
             <br><br> 
@@ -83,127 +79,7 @@
 
         </form>
         
-
-        <script>
-
-            function validarFormulario() {
-
-                const form  = document.getElementsByTagName('form')[0]; 
-
-                const nombreValue = document.getElementById('nombre').value; 
-                const expresionNombre = /^[A-Z][a-z]{1,49}/;
-                const nombreError = document.querySelector('#nombre + span.error'); 
-    
-                const emailValue = document.getElementById('mail').value;
-                const expresionEmail = /\S+@\S+\.\S+/;
-                const emailError = document.querySelector('#mail + span.error'); 
-  
-                const contraseñaValue  = document.getElementById('contraseña').value; 
-                const contraseñaError = document.querySelector('#contraseña + span.error'); 
-    
-                const contraseñaRepValue = document.getElementById('contraseñaRep').value; 
-                const contraseñaRepError = document.querySelector('#contraseñaRep + span.error'); 
-    
-                const edadValue = document.getElementById('edad').value;
-                const edadError = document.querySelector('#edad + span.error'); 
-    
-                const generosValue = document.getElementById('generos').value; 
-                const generosError = document.querySelector('#generos + span.error');
-    
-                const terminosValue = document.getElementById('terminos').value; 
-                const terminosError = document.querySelector('#terminos + span.error');
-
-                
-                if (nombreValue = "") {
-                    nombreError.textContent = "Debe introducir un nombre"; 
-                    return false;
-                    
-                } else if (!expresionNombre.test(nombreValue)) {
-                    nombreError.textContent = "El nombre debe tener mínimo 2 caracteres y máximo 50";
-                    return false;
-                    
-                } else {
-                    nombreError.textContent = ""; 
-                }
-                
-                if (emailValue = "") {
-                    emailError.textContent = "Debe introducir un email";
-                    return false;
-                    
-                } else if (!expresionEmail.test(emailValue)) {
-                    emailError.textContent = "Formato de email incorrecto email@email.com";
-                    return false;
-                    
-                } else {
-                    emailError.textContent = "";
-                }
-    
-                if (contraseñaValue = "") {
-                    contraseñaError.textContent = "Debe introducir una contraseña";
-                    return false;
-                                
-                } else if (!contraseñaValue.length <= 8) {
-                    contraseñaError.textContent = "La contraseña debe tener mínimo 8 caracteres"; 
-                    return false;
-                    
-                } else {
-                    emailError.textContent = "";
-                }
-           
-                if (contraseñaRepValue = "") {
-                    contraseñaRepError.textContent = "Debe introducir la contraseña de nuevo";
-                    return false;
-                                
-                } else if (contraseñaRepValue.localeCompare(contraseñaRepValue) != -1) {
-                    contraseñaRepError.textContent = "Las contraseñas no coinciden"; 
-                    return false;
-                    
-                } else {
-                    contraseñaRepError.textContent = "";
-                }
-
-                if (edadValue = "") {
-                    edadError.textContent = "Debe introducir una edad";
-                    return false;
-                                
-                } else if (!isNumeric(edadValue)) {
-                    edadError.textContent = "La edad debe ser numérica";
-                    return false;
-                    
-                } else if (edadValue < 18 || edadValue > 99) {
-                    edadError.textContent = "La edad mínima debe ser 18 y la máxima 99";
-                    return false;
-                    
-                } else {
-                    edadError.textContent = "";
-                }               
-
-                // if (!isSelected(value)) {
-                //     generosError.textContent = "Debe seleccionar una opcion";
-                //     return false;
-                                
-                // } else if (!isNumeric(value)) {
-                //     generosError.textContent = "Debe seleccionar una opción";
-                //     return false;
-                    
-                // } else {
-                //     generosError.textContent = "";
-                // }
-              
-                if (!isSelected(terminosValue)) {
-                    terminosError.textContent = "Debe aceptar los términos y condiciones";
-                    return false;
-                    
-                } else {
-                    terminosError.textContent = ""; 
-                }
-                
-                
-                return true;
-            }
-            
-
-        </script>
+        <script src="js/validar.js"></script>
     </body>
 
 </html>
