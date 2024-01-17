@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>Formulario</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        h1{
+            text-align: center;
+        }
+        main {
+            padding: 10px 20px;
+        }
+
+        form {
+            width: 500px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #aaa;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 6px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"] {
+            display: block;
+            width: 95%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        #genero {
+            padding: 0 10px;
+        }
+
+        input[type="submit"] {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .error {
+            display: block;
+            height: 15px;
+            padding: 0 0 10px;
+            color: red;
+            box-sizing: content-box;
+        }
+
+        .invalido {
+            border-color: red;
+            background: #fff0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <h1>Formulario de validaciones</h1>
+        <form novalidate>
+            <label for="nombre">Nombre: </span>
+                <input type="text" id="nombre" name="nombre" required>
+                <span class="error">
+            </label>
+
+
+            <label for="email">Email:
+                <input type="email" id="email" name="email" required pattern="\S+@\S+\.\S+">
+                <span class="error"></span>
+            </label>
+
+
+            <label for="pass">Contraseña: </span>
+                <input type="password" id="pass" name="pass" required minlength="8">
+                <span class="error">
+            </label>
+
+
+            <label for="pass2">Repetir Contraseña: </span>
+                <input type="password" id="pass2" name="pass2" required minlength="8">
+                <span class="error">
+            </label>
+
+
+            <label for="edad">Edad: </span>
+                <input type="number" id="edad" name="edad" required min="18" max="99">
+                <span class="error">
+            </label>
+
+
+            <span>Genero:</span>
+            <div id="genero">
+                <label for="hombre">&nbsp;-Hombre:
+                    <input type="radio" name="genero" id="hombre">
+                </label>
+
+                <label for="mujer">&nbsp;-Mujer:
+                    <input type="radio" name="genero" id="mujer">
+                </label>
+            </div>
+            <span class="error"></span>
+
+
+            <label for="terminos">Aceptar terminos y condiciones:
+                <input type="checkbox" name="terminos" id="terminos">
+                <span class="error"></span>
+            </label>
+
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+    </main>
+
+    <script type="module" src="js/funciones.js"></script>
+</body>
+
+</html>
