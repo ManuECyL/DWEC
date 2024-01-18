@@ -1,11 +1,10 @@
 {
   "name": "api_01",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "main": "ciudades.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon ciudades.js"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +15,6 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
-  }
+  },
+  "description": ""
 }
