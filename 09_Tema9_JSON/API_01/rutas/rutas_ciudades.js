@@ -25,5 +25,8 @@ rutasCiudades.patch('/patch/:id', ciudadesController.patchCiudades);
 // PATCH de rutasCiudades por Id (Modificar de forma natural) 
 rutasCiudades.patch('/:id', ciudadesController.actualizarCiudades);
 
+// DELETE de rutasCiudades por Id
+rutasCiudades.delete('/:id', ciudadesController.borrarCiudades);
+
 // Exportamos la constante routes con la colección de rutasCiudades
 module.exports = rutasCiudades;

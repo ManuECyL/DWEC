@@ -147,6 +147,34 @@ const actualizarCiudades = (req, res) => {
 }
 
 
+// Función para actualizar de forma natural los datos de una ciudad según el id indicado
+const borrarCiudades = (req, res) => {
+
+    const sql = `DELETE FROM ciudades WHERE id = ?`;
+    const idRegistro = req.params.id;
+
+    // Consulta a la base de datos
+    db.query(sql, [idRegistro], (err, resultados) => { // http://localhost:3000/ciudades/3
+
+        if (err) {
+            console.error('Error de conexión a la base de datos: ', err);
+            res.status(500).json({error: 'Error interno del servidor'})
+    
+        } else {
+
+            // Verifica si se encontró un registro
+            if (resultados.affectedRows > 0) {
+                // Devuelve el primer resultado encontrado (debería ser único)
+                res.json({mensaje: `Registro con id: ${idRegistro} se eliminó correctamente`});
+
+            } else {
+                res.status(400).json({error : 'Registro no encontrado'});
+            }
+        }
+
+    });
+}
+
 // Exportaciones que vamos a realizar
 module.exports = {
     getCiudades,
@@ -154,5 +182,6 @@ module.exports = {
     getCiudadesById,
     putCiudades,
     patchCiudades,
-    actualizarCiudades
+    actualizarCiudades,
+    borrarCiudades
 };
