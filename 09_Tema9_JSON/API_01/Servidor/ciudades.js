@@ -1,6 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const ciudades = express();
 const puerto = 3000;
+
+ciudades.use(cors);
 
 // Importamos la constante routes con la colección de ciudades
 const rutasCiudades = require('./rutas/rutas_ciudades');
