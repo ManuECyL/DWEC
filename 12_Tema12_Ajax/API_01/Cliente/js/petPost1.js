@@ -30,4 +30,5 @@ document.getElementById('addCiudad').addEventListener('submit', (event) => {
     peticion.addEventListener('load', function() {
         console.log(peticion.responseText);
     });
+
 })
