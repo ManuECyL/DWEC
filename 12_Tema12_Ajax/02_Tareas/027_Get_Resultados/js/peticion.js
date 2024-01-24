@@ -1,5 +1,6 @@
 document.getElementById('b1').addEventListener('click', realizarSolicitudCiudades);
 
+
 function realizarSolicitudCiudades() {
     
     // Instanciamos una Petición como un nuevo objeto XMLHttpRequest

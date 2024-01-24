@@ -13,7 +13,33 @@
     
         <button id="b1">1ª PETICIÓN</button>
 
-        <script src="js/peticion1.js"></script>
+        <button id="b3">3ª PETICIÓN</button>
+
+        <ul id="listaCiudades"></ul>
+
+        <h1>POST con XMLHttpRequest</h1>
+
+        <form action="" id="addCiudad" name="addCiudad" method="post">
+            
+            <label for="nombre">Nombre:&nbsp;</label>
+            <input type="text" name="nuevoNombre" id="nuevoNombre" required>
+
+            <br><br>
+
+            <label for="habitantes">Cantidad:&nbsp;</label>
+            <input type="text" name="habitantes" id="habitantes" required>
+
+            <br><br>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+
+        <ul id="listaCiudades"></ul>
+
+        <!-- <script src="js/petGet1
+            .js"></script> -->
+        <script src="js/petPost1.js"></script>
     </body>
 
 </html>

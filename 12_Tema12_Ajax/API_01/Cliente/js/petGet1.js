@@ -1,4 +1,20 @@
 document.getElementById('b1').addEventListener('click', realizarSolicitud_1);
+// document.getElementById('b3').addEventListener('click', realizarSolicitudCiudades3);
+
+function pintar(datos, lugar) {
+
+    datos.foreach(ciudad => {
+
+        const nuevoElementoLi = document.createElement('li');
+        nuevoElementoLi.textContent = ciudad.nombre;
+        nuevoElementoLi.style.cursor = 'pointer';
+        nuevoElementoLi.addEventListener('click', function() {
+            nuevoElementoLi.textContent = ciudad.nombre + ": " + ciudad.cantidad;
+        });
+
+        lugar.appendChild(nuevoElementoLi);
+    })
+}
 
 function realizarSolicitud_1() {
     
