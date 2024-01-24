@@ -11,5 +11,3 @@ insert into ciudades (nombre,cantidad) values ("Salamanca",210000);
 insert into ciudades (nombre,cantidad) values ("Sevilla",580000);
 insert into ciudades (nombre,cantidad) values ("Murcia",198000);
 insert into ciudades (nombre,cantidad) values ("Badajoz",160000);
-
-
