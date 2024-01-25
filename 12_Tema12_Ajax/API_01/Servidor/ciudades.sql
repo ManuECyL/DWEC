@@ -1,5 +1,5 @@
-CREATE database IF NOT exists ejemplodb;
-use ejemplodb;
+CREATE database IF NOT exists ejemplodbmanu;
+use ejemplodbmanu;
 create table if not exists ciudades
 (
     id int(11) not null auto_increment,
