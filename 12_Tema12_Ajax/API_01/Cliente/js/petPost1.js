@@ -31,4 +31,9 @@ document.getElementById('addCiudad').addEventListener('submit', (event) => {
         console.log(peticion.responseText);
     });
 
-})
+    // Manejar el evento error en caso de problemas de red
+    peticion.addEventListener('error', function () {
+        console.error('Error de red al realizar la solicitud');
+    })
+
+});

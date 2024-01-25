@@ -1,5 +1,5 @@
 document.getElementById('b1').addEventListener('click', realizarSolicitud_1);
-// document.getElementById('b3').addEventListener('click', realizarSolicitudCiudades3);
+document.getElementById('b3').addEventListener('click', realizarSolicitud_3);
 
 function pintar(datos, lugar) {
 
@@ -17,6 +17,8 @@ function pintar(datos, lugar) {
 }
 
 function realizarSolicitud_1() {
+
+    console.log('Peticion 1');
     
     // Instanciamos una Petición como un nuevo objeto XMLHttpRequest
     const peticion = new XMLHttpRequest();
@@ -30,7 +32,7 @@ function realizarSolicitud_1() {
 
         console.log(peticion.readyState);
 
-        if (peticion.status == 4) { // Hemos recibido
+        if (peticion.readyState == 4) { // Hemos recibido
 
             if (peticion.status == 200) {
 
@@ -50,3 +52,57 @@ function realizarSolicitud_1() {
     // Enviamos la petición
     peticion.send();
 }
+
+
+function realizarSolicitud_3() {
+
+    console.log('Peticion 3');
+    
+    // Instanciamos una Petición como un nuevo objeto XMLHttpRequest
+    const peticion = new XMLHttpRequest();
+    
+    const url =  'http://127.0.0.1:3000/ciudades';
+    
+    peticion.open('GET', url)
+
+    peticion.addEventListener('load', function() {
+        
+        if (peticion.status === 200) {
+
+            console.log(peticion.readyState);
+
+            const datos = JSON.parse(peticion.responseText) // JSON a array de objetos
+
+            const lugar = document.getElementById('listaCiudades');
+
+            pintar(datos, lugar);
+        
+        } else {
+            muestraError(peticion);
+        }      
+
+    });
+
+    // Enviamos la petición
+    peticion.send();
+
+    function muestraError(peticion) {
+
+        console.log("EEEEE");
+        console.log(peticion.status);
+
+      if (peticion.status) {
+          console.log("Error "+peticion.status+" ("+peticion.statusText+") en la petición");
+
+      } else {
+          console.log("Ocurrió un error o se abortó la conexión");
+      }
+
+    }
+    
+    peticion.addEventListener('error', muestraError);
+    peticion.addEventListener('abort', muestraError);
+    peticion.addEventListener('timeout', muestraError);
+}
+
+

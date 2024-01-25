@@ -1,5 +1,4 @@
 // Peticion POST con URLEnconded
-
 const dirIP_api = '127.0.0.1'; // O asignar el valor que necesitas
 const PUERTO_EXPRESS = 3000; // O asignar el valor que necesitas
 
@@ -21,7 +20,7 @@ document.getElementById('addCiudad').addEventListener('submit', (event) => {
     peticion.open('POST', url);
 
     // Siempre tiene que estar esta línea si se envían datos
-    peticion.setRequestHeader('Content-type', 'application/json');
+    peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     // La siguiente línea lleva & para separar los parámetros
     const datosCodificados = `nuevoNombre=${encodeURIComponent(nuevoNombre)}&habitantes=${encodeURIComponent(habitantes)}`;
@@ -35,5 +34,6 @@ document.getElementById('addCiudad').addEventListener('submit', (event) => {
     // Manejar el evento de error en caso de problemas de red
     peticion.addEventListener('error', function() {
         console.error('Error de red al realizar la solicitud');
-    })
-})
+    });
+    
+});

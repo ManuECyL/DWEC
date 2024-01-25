@@ -36,10 +36,6 @@ ciudades.use(upload.any());
 // Necesario para realizar la consulta get sobre la tabla ciudades
 ciudades.use('/ciudades', rutasCiudades);
 
-ciudades.listen(puerto, () => {
-    console.log(`Servidor escuchando en el puerto ${puerto}`);
-});
-
 // Comprobar por que puerto está escuchando nuestro servidor
 ciudades.listen(puerto, () => {
     console.log(`Servidor escuchando en el puerto ${puerto}`);

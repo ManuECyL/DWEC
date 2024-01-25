@@ -10,7 +10,8 @@ document.getElementById('addCiudad').addEventListener('submit', (event) => {
 
     console.log(datosForm);
 
-    const nuevoNombre = datosForm.get('nuevoNombre'); // Name de los input del form
+    // Name de los input del form
+    const nuevoNombre = datosForm.get('nuevoNombre');
     const habitantes = datosForm.get('habitantes');
 
     // FormData.append('otrodato', 'valortexto');
@@ -26,7 +27,6 @@ document.getElementById('addCiudad').addEventListener('submit', (event) => {
     peticion.send(datosForm);
 
     peticion.addEventListener('load', function() {
-        
         // Procesamos los datos
         console.log(peticion.responseText);
     });
