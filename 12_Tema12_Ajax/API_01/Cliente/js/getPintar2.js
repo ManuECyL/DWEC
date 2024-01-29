@@ -21,7 +21,7 @@ function getCiudad(idCiudad, funcion_callback){
             // En datos tenemos un objeto
             const datos= JSON.parse(peticion.responseText);
             
-            console.log(datos);
+            // console.log(datos);
 
             funcion_callback(datos);
 

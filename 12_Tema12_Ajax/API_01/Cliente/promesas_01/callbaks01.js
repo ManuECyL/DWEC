@@ -13,7 +13,7 @@ function leerArchivo( callbackExito, callbackError) {
       } else {
         callbackError("Error al leer el archivo.");
       }
-      
+
     }, 2000);
   }
 
