@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Document</title>
+        <title>Peticiones Cliente</title>
 
     </head>
 
     <body>
+    
+        <button id="b1">1ª PETICIÓN</button>
 
-        <button id ="b1"> 1ª PETICION</button>
-        <button id ="b3"> 3ª PETICION</button>
+        <!-- <button id="b3">3ª PETICIÓN</button> -->
 
-        <h1> Post con XMLHttpRequest</h1>
+        <h1>POST con XMLHttpRequest</h1>
 
-        <form action="" id="addCiudad" name="addCiudad">
-            <label for="nuevoNombre">Nombre:&nbsp; </label>
-
-            <input type="text" name="nuevoNombre" id="nuevoNombre" required>
+        <form action="" id="addCiudad" name="addCiudad" method="post">
             
+            <label for="nombre">Nombre:&nbsp;</label>
+            <input type="text" name="nuevoNombre" id="nuevoNombre" required>
+
             <br><br>
 
-            <label for="habitantes">Cantidad:&nbsp; </label>
-            <input type="number" name="habitantes" id="habitantes" required><br><br>
-            <button type="submit" class="centrado">Añadir</button>
+            <label for="habitantes">Cantidad:&nbsp;</label>
+            <input type="text" name="habitantes" id="habitantes" required>
+
+            <br><br>
+
+            <button type="submit">Enviar</button>
 
         </form>
 
         <ul id="listaCiudades"></ul>
 
-        <script src="petGet1.js"></script>
-        <script src="petPost2.js"></script>
-
+        <!-- <script src="js/petGet1.js"></script> -->
+        <script src="js/petGet2.js"></script>
+        <!-- <script src="js/petPost1.js"></script> -->
+        <!-- <script src="js/petPost2.js"></script> -->
+        <script src="js/petPost3.js"></script>
     </body>
 
 </html>

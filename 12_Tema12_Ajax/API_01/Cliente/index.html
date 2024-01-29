@@ -1,45 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title>Peticiones Cliente</title>
-
+        <title>Document</title>
     </head>
 
     <body>
-    
-        <button id="b1">1ª PETICIÓN</button>
 
-        <!-- <button id="b3">3ª PETICIÓN</button> -->
+        <button id ="b1"> 1ª PETICION</button>
+        <button id ="b3"> 3ª PETICION</button>
 
-        <h1>POST con XMLHttpRequest</h1>
+        <h1> Post con XMLHttpRequest</h1>
 
-        <form action="" id="addCiudad" name="addCiudad" method="post">
-            
-            <label for="nombre">Nombre:&nbsp;</label>
-            <input type="text" name="nuevoNombre" id="nuevoNombre" required>
+        <fieldset>
+            <legend> Añadir Ciudad</legend>
 
-            <br><br>
+            <form action="" id="addCiudad" name="addCiudad">
 
-            <label for="habitantes">Cantidad:&nbsp;</label>
-            <input type="text" name="habitantes" id="habitantes" required>
+                <label for="nuevoNombre">Nombre:&nbsp; </label>
+                <input type="text" name="nuevoNombre" id="nuevoNombre" required>
 
-            <br><br>
+                <br><br>
 
-            <button type="submit">Enviar</button>
+                <label for="habitantes">Cantidad:&nbsp; </label>
+                <input type="number" name="habitantes" id="habitantes" required>
+                
+                <br><br>
 
-        </form>
+                <button type="submit" class="centrado">Añadir</button>
 
-        <ul id="listaCiudades"></ul>
+            </form>
 
-        <!-- <script src="js/petGet1.js"></script> -->
-        <script src="js/petGet2.js"></script>
-        <!-- <script src="js/petPost1.js"></script> -->
-        <!-- <script src="js/petPost2.js"></script> -->
-        <script src="js/petPost3.js"></script>
+        </fieldset>
+
+        <fieldset>
+            <legend> Buscar Ciudad</legend>
+
+            <form action="" id="getCiudad" name="getCiudad">
+
+                <label for="id-ciudad">Ciudad Id:&nbsp; </label>
+                <input type="number" name="id-ciudad" id="id-ciudad" required><br><br>
+
+                <button type="submit" >Buscar</button>
+
+                <p id="p1"></p>
+
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <legend> Lista de Ciudades</legend>
+
+            <ul id="listaCiudades"></ul>
+        </fieldset>
+
     </body>
 
+    <script src="js/petGet1.js"></script>
+    <script src="js/petPost3.js"></script>
+    <script src="js/getPintar1.js"></script>
+    <script src="js/getPintar2.js"></script>
 </html>
