@@ -1,6 +1,6 @@
 function renderCiudad(datos) {
 
-    console.log(datos);
+    // console.log(datos);
 
     // Pintamos los datos en la página
     document.getElementById('p1').innerHTML = datos.nombre + ": " + datos.cantidad;
@@ -21,7 +21,7 @@ function getCiudad(idCiudad, funcion_callback){
             // En datos tenemos un objeto
             const datos= JSON.parse(peticion.responseText);
             
-            // console.log(datos);
+            console.log(datos);
 
             funcion_callback(datos);
 
