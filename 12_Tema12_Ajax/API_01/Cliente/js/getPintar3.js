@@ -4,31 +4,27 @@
 
 function getCiudad(idCiudad){
 
-    const peticion=new XMLHttpRequest();
-    const url=`http://${dirIP_api}:${PUERTO_EXPRESS}`;
+    return new Promise((resolve, reject) => {
 
-    peticion.open('GET', url+ '/ciudades/' + idCiudad);
-    peticion.send();
-    
-    peticion.addEventListener('load', function(){
+        const peticion = new XMLHttpRequest(); 
 
-        if(peticion.status===200){
+        peticion.open('GET', SERVER + '/productos?id=' + idProd); 
+        peticion.send(); 
 
-            // En datos tenemos un objeto
-            const datos = JSON.parse(peticion.responseText);
-            
-            console.log(datos);
+        peticion.addEventListener('load', () => { 
 
-            return(datos);
+          if (peticion.status === 200) { 
+            resolve(JSON.parse(peticion.responseText)); 
 
-        } else {
-            console.error("Error: " + peticion.status + ": " + peticion.statusText);
-        }
-    });
+          } else { 
+            reject("Error " + peticion.status + " (" + peticion.statusText + ") en la petición"); 
+          } 
 
-    // Manejar el evento error en caso de problemas de red
-    peticion.addEventListener('error', function () {
-        console.error('Error de red al realizar la solicitud');
+        });
+
+        // Manejar el evento error en caso de problemas de red
+        peticion.addEventListener('error', () => reject('Error en la petición HTTP')); 
+        
     });
 }
 
