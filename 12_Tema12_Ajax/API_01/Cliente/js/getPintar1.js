@@ -19,6 +19,7 @@ function getCiudad(idCiudad){
             
             console.log(datos);
 
+            // Pintamos los datos en la página. Habrá casos que sea muy extenseo
             document.getElementById('p1').innerHTML = datos.nombre + ": " + datos.cantidad;
 
             // return(datos);
