@@ -1,5 +1,5 @@
 // callback básica
-function leerArchivo( callbackExito, callbackError) {
+function leerArchivo(callbackExito, callbackError) {
 
     // Simulación de la lectura de un archivo después de 2 segundos
     setTimeout(() => {
