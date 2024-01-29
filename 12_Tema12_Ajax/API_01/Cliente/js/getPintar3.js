@@ -13,14 +13,16 @@ function getCiudad(idCiudad){
     peticion.addEventListener('load', function(){
 
         if(peticion.status===200){
-            const datos= JSON.parse(peticion.responseText); //en datos tenemos un objeto
+
+            // En datos tenemos un objeto
+            const datos = JSON.parse(peticion.responseText);
             
             console.log(datos);
 
             return(datos);
 
         } else {
-            console.error("Error: "+ peticion.status + ": "+ peticion.statusText);
+            console.error("Error: " + peticion.status + ": " + peticion.statusText);
         }
     });
 
