@@ -16,6 +16,9 @@ rutasCiudades.post('/add', ciudadesController.postCiudades);
 // GET de rutasCiudades por Id
 rutasCiudades.get('/:id', ciudadesController.getCiudadesById);
 
+// GET de rutasCiudades entre dos valores minimo y maximo
+rutasCiudades.get('/:min/:max', ciudadesController.getCiudadByHabitantes);
+
 // PUT de rutasCiudades por Id (Modificar)
 rutasCiudades.put('/put/:id', ciudadesController.putCiudades);
 

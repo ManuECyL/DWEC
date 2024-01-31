@@ -13,7 +13,8 @@ function getCiudad(idCiudad){
 
         peticion.addEventListener('load', () => { 
 
-          if (peticion.status === 200) { 
+          if (peticion.status === 200) {
+            console.log(JSON.parse(peticion.responseText));
             resolve(JSON.parse(peticion.responseText)); 
 
           } else { 
@@ -34,10 +35,8 @@ document.getElementById('getCiudad').addEventListener('submit', (event)=>{
 
     const idCiudad = document.getElementById('id-ciudad').value;
 
-    datos = getCiudad(idCiudad);
-    console.log(datos);
-
-    // pintamos los datos en la página
-    document.getElementById('p1').innerHTML = datos[0].nuevoNombre + ": " + datos[0].habitantes;
-   
+    getCiudad(idCiudad)
+      // Pintamos los datos en la página o presentamos el error
+      .then(datos => document.getElementById('p1').innerHTML = datos.nombre + ": " + datos.cantidad)
+      .catch(textoError => console.error("Error Personalizado: " + textoError));
 });

@@ -59,12 +59,70 @@ const getCiudadesById = (req, res) => {
                 res.json(resultados[0]);
 
             } else {
-                res.status(400).json({error : 'Registro no encontrado'});
+                res.status(400).json({error: 'Registro no encontrado'});
             }
         }
 
     });
 };
+
+// Función para obtener los datos de una ciudad según el los valores minimo y maximo
+const getCiudadByHabitantes = (req, res) => {
+
+    console.log(" - SELECT por habitantes");
+
+    const minHabitantes = req.params.min;
+    const maxHabitantes = req.params.max;
+
+    // console.log(minHabitantes, maxHabitantes);
+
+    db.query('SELECT * FROM ciudades WHERE cantidad > ? AND cantidad < ?', [minHabitantes,maxHabitantes], (err, resultado) => {
+
+        if (err) {
+            console.error('Error al obtener datos desde la base de datos', err);
+            res.status(500).json({ error: 'Error interno del servidor' });
+
+        } else {            
+
+            if (resultado.length > 0) {
+                res.json(resultado);
+
+            } else {
+                res.status(404).json({ error: 'Registro no encontrado' })
+            }
+        }
+    });
+};
+
+/*const getCiudadesByHabitantesSanti = (req, res) => {
+    try {
+      // Obtén los valores mínimos y máximos del rango desde los parámetros de consulta
+      const minHabitantes = parseInt(req.params.min, 10) || 0; // Valor mínimo, por defecto 0
+      const maxHabitantes = parseInt(req.params.max, 10) || Number.MAX_SAFE_INTEGER; // Valor máximo, por defecto infinito
+ 
+      console.log(minHabitantes);
+      console.log(maxHabitantes);
+ 
+      // Ejecuta la consulta SQL para obtener ciudades en el rango especificado
+      db.query('SELECT * FROM ciudades WHERE cantidad BETWEEN ? AND ?', [minHabitantes, maxHabitantes], (err, resultados) => {
+        if (err) {
+          console.error("Error en la consulta:", err);
+          res.status(500).json({ error: 'Error interno del Servidor' });
+        } else {
+          // Verificamos si se encontró algo
+          if (resultados.length > 0) {
+            res.json({ ciudades: resultados });
+          } else {
+            res.status(404).json({ error: `No se encontraron ciudades con esos requisitos` });
+          }
+        }
+      });
+    } catch (error) {
+      console.error('Error en el controlador:', error);
+      res.status(500).json({ error: 'Error interno del Servidor' });
+    }
+};
+*/
 
 // Función para modificar los datos de una ciudad según el id indicado
 const putCiudades = (req, res) => {
@@ -180,6 +238,7 @@ module.exports = {
     getCiudades,
     postCiudades,
     getCiudadesById,
+    getCiudadByHabitantes,
     putCiudades,
     patchCiudades,
     actualizarCiudades,
