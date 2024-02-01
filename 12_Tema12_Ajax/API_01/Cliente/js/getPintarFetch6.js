@@ -24,7 +24,10 @@ document.getElementById('getCiudad').addEventListener('submit', (event)=>{
         .then(datosObjeto => {
             console.log(datosObjeto);
             document.getElementById('p1').innerHTML = datosObjeto.nombre + ": " + datosObjeto.cantidad;
-        })
+
+            return datosObjeto;
+        
+        }).then(datosNuevos => console.log(JSON.stringify(datosNuevos)))
 
         .catch(error => console.error(error));
 });
