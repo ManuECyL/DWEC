@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Peticiones Tarea 027</title>
+
+    </head>
+
+    <body>
+    
+        <fieldset>
+            <legend> Modificar Ciudad</legend>
+
+            <label for="id">Id:&nbsp; </label>
+            <input type="number" name="id" id="id" required>
+
+            <br><br>
+
+            <label for="nuevoNombre">Nuevo nombre:&nbsp; </label>
+            <input type="text" name="nuevoNombre" id="nuevoNombre" required>
+
+            <br><br>
+
+            <label for="habitantes">Habitantes:&nbsp; </label>
+            <input type="number" name="habitantes" id="habitantes" required>
+            
+            <br><br>
+
+            <button type="button" id="b1" class="centrado">Modificar Put</button>
+            <button type="button" id="b2" class="centrado">Modificar Patch</button>
+
+        </fieldset>
+
+        <div id="resultados"></div>
+
+        <script src="js/peticion.js"></script>
+    </body>
+
+</html>

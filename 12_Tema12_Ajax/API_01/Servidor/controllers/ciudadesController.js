@@ -136,9 +136,13 @@ const putCiudades = (req, res) => {
         if (err) {
             console.error('Error al insertar datos en la base de datos: ', err);
             res.status(500).json({error: 'Error interno del servidor'})
+
+        } else if (resultados.affectedRows == 0) {
+            res.status(404).json({error: 'No se encontró ninguna ciudad con el ID proporcionado'});
     
         } else {
-            res.json({recibido: true, nuevoNombre, habitantes, id:resultados.idRegistro});
+            // res.json({recibido: true, nuevoNombre, habitantes, id:resultados.idRegistro});
+            res.json({recibido: true, nuevoNombre, habitantes, id: idRegistro});
         }
 
     });
@@ -156,9 +160,13 @@ const patchCiudades = (req, res) => {
         if (err) {
             console.error('Error al insertar datos en la base de datos: ', err);
             res.status(500).json({error: 'Error interno del servidor'})
+
+        } else if (resultados.affectedRows == 0) {
+            res.status(404).json({error: 'No se encontró ninguna ciudad con el ID proporcionado'});
     
         } else {
-            res.json({recibido: true, nuevoNombre, habitantes, id:resultados.idRegistro});
+            // res.json({recibido: true, nuevoNombre, habitantes, id:resultados.idRegistro});
+            res.json({recibido: true, nuevoNombre, habitantes, id: idRegistro});
         }
 
     });
