@@ -24,10 +24,4 @@ document.getElementById("btnCalcular").addEventListener('click', (event) => {
 
     let resultado2 = document.getElementById("resultado2");
     resultado2.innerHTML = "Te faltan " + restaDias + " dias hasta llegar a los 10.000 dias, es decir " + años + " año";
-
 })
-
-
-
-
-
