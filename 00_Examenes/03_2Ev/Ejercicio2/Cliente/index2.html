@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Ejercicio 3</title>
+
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+
+    <body>
+
+        <form action="post" id="getCiudadNombre">
+
+            <label for="ciudad">Ciudad: </label>
+            <input type="text" name="ciudad" id="nombre_ciudad" placeholder="Ciudad">
+
+            <input type="submit" value="Buscar" id="btnBuscar">
+        </form>
+
+        <br>
+
+        <table>
+            <thead id="campos">
+                
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Eliminar</th>
+
+            </thead>
+
+            <tbody id="datos">
+
+            </tbody>
+        </table>
+
+        <script src="js/ejercicio3.js"></script>
+    </body>
+
+</html>
