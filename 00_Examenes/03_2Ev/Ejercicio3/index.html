@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Ejercicio4</title>
+
+        <link rel="shortcut icon" href="#" type="image/x-icon">
+
+        <style>
+            h1 {
+                /* text-align: center; */
+            }
+
+            form {
+                /* text-align: center;
+                width: 100%;
+                margin: 0 auto; */
+            }
+
+            .error {
+                color: red;
+            }
+
+            #email:invalid { 
+                border: 2px dashed red; 
+            } 
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Formulario de Alta de Alumno</h1>
+
+        <br>
+
+        <form novalidate id="formAltaAlumno" name="fAA" onsubmit="validaFormulario(event)">
+
+            <label for="numMatricula">Número de Matrícula: </span> 
+                <input type="text" id="numMatricula" name="numMatricula" disabled> 
+                <span id="errorNumMatricula" class="error">
+            </label> 
+
+            <br><br> 
+
+            <label>Grupo de Clase en el Curso Actual: </span> 
+                <select name="grupo" id="grupo">
+                    <option id="grupo0">Seleccione un grupo</option>
+                    <option id="grupo1" name="grupo">ASIR1</option>
+                    <option id="grupo2" name="grupo">ASIR2</option>
+                    <option id="grupo3" name="grupo">DAM1</option>
+                    <option id="grupo4" name="grupo">DAM2</option>
+                    <option id="grupo5" name="grupo">DAW1</option>
+                    <option id="grupo6" name="grupo">DAW2</option>
+                </select>
+                <span id="errorGrupo" class="error">
+            </label> 
+
+            <br><br> 
+
+            <label for="dni">DNI: </span> 
+                <input type="text" id="dni" name="dni" required> 
+                <span id="errorDni" class="error">
+            </label> 
+
+            <br><br> 
+            
+            <label for="nombre">Nombre: </span> 
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required> 
+                <span id="errorNombre" class="error">
+            </label> 
+
+            <br><br> 
+
+            <label for="apellidos">Apellidos: </span> 
+                <input type="text" id="apellidos" name="apellidos" placeholder="apellidos" required> 
+                <span id="errorApellidos" class="error">
+            </label> 
+
+            <br><br> 
+
+            <label for="codAlum">Código de Alumno: </span> 
+                <input type="text" id="codAlum" name="codAlum" required readonly> 
+                <span id="errorCodAlum" class="error">
+            </label> 
+
+            <br><br> 
+
+            <label for="edad">Fecha de Nacimiento: 
+                <input type="date" id="edad" name="edad" required> 
+                <span id="errorEdad" class="error"></span> 
+            </label>
+
+            <br><br> 
+            
+
+            <label for="mail">E-mail: 
+                <input type="email" id="email" name="mail" placeholder="email@email.com" required> 
+                <span id="errorEmail" class="error"></span> 
+            </label>
+
+            <br><br> 
+
+            <label for="nombreUser">Nombre de Usuario: </span> 
+                <input type="text" id="nombreUser" name="nombreUser" required> 
+                <span id="errorNombreUser" class="error">
+            </label> 
+
+            <br><br> 
+
+            <label for="contrasena">Contraseña: 
+                <input type="password" id="contrasena" name="contrasena" readonly> 
+                <span id="errorContrasena" class="error"></span> 
+            </label>
+
+            <br><br> 
+
+            <input type="submit" value="Guardar Alumno">
+
+        </form>
+
+        <script src="js/form.js"></script>
+    </body>
+
+</html>
