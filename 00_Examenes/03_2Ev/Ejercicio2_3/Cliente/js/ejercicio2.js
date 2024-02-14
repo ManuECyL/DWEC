@@ -67,7 +67,7 @@ window.onload = async function() {
 
             
             let form = document.createElement('form');
-                form.setAttribute('method', 'post');
+                // form.setAttribute('method', 'post');
                 form.setAttribute('id', 'deleteCiudad');
             
             let btnEliminar = document.createElement('input');

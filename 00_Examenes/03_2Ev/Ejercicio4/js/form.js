@@ -172,8 +172,6 @@ function validaFormulario(event) {
     } 
 
 
-
-
     // Si no hay errores, enviamos el formulario
     if (!hayError) {
         enviado();
