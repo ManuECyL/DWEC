@@ -16,9 +16,9 @@ function calcular(operacion, x, y) {
 
 function duplicar(num) {
 
-    num = (calcular.bind('multiplicacion', num, 2)); 
+    num = calcular.bind(null,'multiplicacion', num, 2); 
 
-    return num;
+    return num();
 }
 
 console.log(duplicar(3));
